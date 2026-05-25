@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شذرات - الحرف اليدوية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html { scroll-behavior: smooth; }
+
+        /* ===== HERO ===== */
+        .crafts-hero {
+            position: relative;
+            height: 70vh;
+            background: linear-gradient(rgba(11,43,26,0.6), rgba(11,43,26,0.82)),
+                        url('images/hero-bg.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 6%;
+        }
+        .crafts-hero-tag {
+            display: inline-block;
+            background-color: #b94a24;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 18px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .crafts-hero h1 {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 58px;
+            color: #f4ede2;
+            margin-bottom: 18px;
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.5);
+            line-height: 1.3;
+        }
+        .crafts-hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            max-width: 600px;
+            line-height: 1.9;
+        }
+
+        /* ===== STICKY NAV ===== */
+        .crafts-nav-bar {
+            background-color: #0b2b1a;
+            padding: 14px 4%;
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .crafts-nav-bar a {
+            color: #d1c7bd;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 7px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .crafts-nav-bar a:hover, .crafts-nav-bar a.pill-active {
+            background-color: #b94a24;
+            color: #fff;
+            border-color: #b94a24;
+        }
+
+        /* ===== INTRO ===== */
+        .crafts-intro {
+            background-color: #f4ede2;
+            padding: 55px 6% 20px;
+        }
+        .crafts-intro p {
+            font-size: 16px;
+            line-height: 2;
+            color: #4a3d32;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 26px 32px;
+            border-radius: 12px;
+            border-right: 5px solid #0b2b1a;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+
+        /* ===== BODY ===== */
+        .crafts-body {
+            background-color: #f4ede2;
+            padding: 50px 6% 80px;
+        }
+
+        /* ===== CRAFT BLOCK ===== */
+        .craft-block {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 45px;
+            align-items: start;
+            margin-bottom: 70px;
+            padding-bottom: 70px;
+            border-bottom: 2px solid #d1c7bd;
+        }
+        .craft-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .craft-block.reverse { grid-template-columns: 400px 1fr; }
+        .craft-block.reverse .craft-visual { order: -1; }
+
+        /* --- Text Side --- */
+        .craft-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+        .craft-icon-badge {
+            width: 52px; height: 52px;
+            background-color: #0b2b1a;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; flex-shrink: 0;
+        }
+        .craft-header h2 {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 30px; color: #0b2b1a; margin: 0;
+        }
+        .craft-origin {
+            display: inline-block;
+            background-color: #b94a24; color: #fff;
+            font-size: 11px; font-weight: 700;
+            padding: 4px 14px; border-radius: 20px;
+            margin-bottom: 18px; letter-spacing: 0.5px;
+        }
+        .craft-desc {
+            font-size: 15px; line-height: 2; color: #4a3d32; margin-bottom: 26px;
+        }
+
+        /* Facts Grid */
+        .craft-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 26px;
+        }
+        .fact-item {
+            background-color: #fff; border-radius: 10px;
+            padding: 13px 15px; border-right: 3px solid #b94a24;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .fact-label {
+            font-size: 11px; color: #9c8170; font-weight: 700;
+            letter-spacing: 0.5px; margin-bottom: 5px;
+        }
+        .fact-value { font-size: 13px; color: #0b2b1a; font-weight: 700; line-height: 1.5; }
+
+        /* Steps */
+        .craft-steps-title {
+            font-size: 15px; font-weight: 700; color: #0b2b1a;
+            margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+        }
+        .craft-steps { display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
+        .step-item {
+            display: flex; align-items: flex-start; gap: 12px;
+            background-color: #fff; border-radius: 10px;
+            padding: 11px 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .step-num {
+            width: 26px; height: 26px; background-color: #0b2b1a;
+            color: #f4ede2; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700; flex-shrink: 0;
+        }
+        .step-text { font-size: 14px; color: #4a3d32; line-height: 1.7; padding-top: 1px; }
+
+        /* Tags */
+        .craft-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+        .craft-tag {
+            background-color: #fff; border: 1px solid #d1c7bd;
+            border-radius: 20px; padding: 5px 13px;
+            font-size: 12px; color: #605244; font-weight: 700;
+        }
+
+        /* --- Visual Side --- */
+        .craft-visual {
+            display: flex; flex-direction: column; gap: 16px;
+            position: sticky; top: 80px;
+        }
+        .craft-img-wrap {
+            position: relative; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18); height: 290px;
+        }
+        .craft-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .craft-img-wrap:hover img { transform: scale(1.05); }
+        .craft-img-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(11,43,26,0.85));
+            padding: 20px 18px 13px;
+            color: #f4ede2; font-size: 13px; font-weight: 700;
+        }
+        .craft-quote-box {
+            background-color: #0b2b1a; border-radius: 14px;
+            padding: 20px 22px; color: #d1c7bd;
+            font-size: 14px; line-height: 1.9; font-style: italic;
+            position: relative;
+        }
+        .craft-quote-box::before {
+            content: '❝'; position: absolute; top: -10px; right: 18px;
+            font-size: 30px; color: #b94a24; font-style: normal;
+        }
+        .craft-quote-box cite {
+            display: block; margin-top: 10px;
+            font-style: normal; font-size: 12px; color: #b94a24; font-weight: 700;
+        }
+
+        /* Cultural note */
+        .cultural-note {
+            background-color: #fff8f0;
+            border: 1px dashed #b94a24;
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 13px;
+            color: #4a3d32;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+        .cultural-note strong { color: #b94a24; }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 900px) {
+            .craft-block, .craft-block.reverse { grid-template-columns: 1fr; }
+            .craft-block.reverse .craft-visual { order: 0; }
+            .craft-visual { position: static; }
+            .crafts-hero h1 { font-size: 36px; }
+            .craft-facts { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .crafts-hero h1 { font-size: 28px; }
+            .crafts-nav-bar a { font-size: 11px; padding: 6px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo brand-font">شَذَرات<span class="logo-en">SHAZHARAT</span></div>
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#places-section">المناطق الأثرية</a>
+        <a href="crafts.html" class="active">الحرف اليدوية</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+</header>
+
+<!-- HERO -->
+<section class="crafts-hero">
+    <span class="crafts-hero-tag">🛠️ الحرف اليدوية</span>
+    <h1>حرف صنعت الحضارة</h1>
+    <p>شواهد حيّة على عبقرية الإنسان المصري وقدرته على تحويل خامات الأرض إلى فنون أبهرت العالم على مر العصور</p>
+</section>
+
+<!-- STICKY NAV -->
+<nav class="crafts-nav-bar" id="craftsNavBar">
+    <a href="#khayamiya-section">🧵 الخيامية</a>
+    <a href="#weaving-section">🧶 النسيج اليدوي</a>
+    <a href="#copper-section">🪙 النحاس</a>
+    <a href="#pottery-section">🏺 الفخار</a>
+    <a href="#khouss-section">🌿 الخوص</a>
+    <a href="#kharz-section">📿 الأعمال بالخرز</a>
+    <a href="#papyrus-section">📜 ورق البردي</a>
+    <a href="#seals-section">🔏 صناعة الأختام</a>
+    <a href="#alabaster-section">🗿 الألباستر</a>
+    <a href="#boats-section">⚓ صناعة المراكب</a>
+    <a href="#shell-section">🐚 التطعيم بالصدف</a>
+</nav>
+
+<!-- INTRO -->
+<div class="crafts-intro">
+    <p>
+        تمثل الحرف اليدوية في مصر شواهد حيّة على عظمة الإنسان المصري وقدرته على طوع الخامات البسيطة ليصنع منها فنوناً أبهرت العالم على مر العصور. من خلال هذه الصفحة، نستعرض أبرز الحرف التراثية التي وثّقتها حملة <strong>شذرات</strong> للحفاظ عليها من الاندثار.
+    </p>
+</div>
+
+<div class="crafts-body">
+
+    <!-- ============================
+         1. الخيامية
+    ============================= -->
+    <div id="khayamiya-section" class="craft-block">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">🧵</div>
+                <h2>الخيامية</h2>
+            </div>
+            <span class="craft-origin">📍 شارع الخيامية — القاهرة التاريخية</span>
+            <p class="craft-desc">
+                تُعد الخيامية واحدة من أعرق الحرف التراثية المصرية، ارتبطت بالهوية الشعبية والفنون الإسلامية منذ مئات السنين. تعتمد على تطريز وتنسيق قطع القماش الملونة يدويًا لتكوين زخارف هندسية ونباتية مميزة تعكس روح الفن المصري والإسلامي. استُخدمت قديمًا في صناعة السرادقات والخيام الخاصة بالمناسبات والاحتفالات — ومن هنا جاء اسمها.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🪡 طبيعة العمل</div>
+                    <div class="fact-value">يدوي بالكامل بإبرة وخيوط قطنية ملونة</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🎨 مصدر الإلهام</div>
+                    <div class="fact-value">الزخارف الإسلامية والنقوش الفرعونية</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🏠 الاستخدامات</div>
+                    <div class="fact-value">مفارش، لوحات، سرادقات، ديكورات داخلية</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">⏱️ زمن القطعة</div>
+                    <div class="fact-value">من أسبوع حتى شهور للقطع الكبيرة</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ خطوات الصنع:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">تُقطع القماشات الملونة بأشكال هندسية دقيقة بحسب التصميم المختار.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">تُرتّب القطع يدويًا وتُثبَّت على القماش الأساسي لتكوين الزخرفة.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">يخيط الحرفي كل قطعة بغرزة خاصة تضمن الثبات وتُبرز الخيوط كزينة إضافية.</div></div>
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">تراث إسلامي</span>
+                <span class="craft-tag">خيوط ملونة</span>
+                <span class="craft-tag">زخارف هندسية</span>
+                <span class="craft-tag">حرفة مهددة بالاندثار</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/khayamiya.jpg" alt="الخيامية" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">🧵 حرفي الخيامية في شارع الخيامية بالقاهرة</div>
+            </div>
+            <div class="craft-quote-box">
+                "كل غرزة في الخيامية هي جزء من حكاية، والألوان لغة يتكلمها الحرفي بيده قبل لسانه."
+                <cite>— حرفي من شارع الخيامية</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         2. النسيج اليدوي
+    ============================= -->
+    <div id="weaving-section" class="craft-block reverse">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">🧶</div>
+                <h2>النسيج اليدوي</h2>
+            </div>
+            <span class="craft-origin">📍 أخميم — الفيوم</span>
+            <p class="craft-desc">
+                يُعتبر النسيج اليدوي من أقدم الصناعات التي عرفها الإنسان، اعتمد المصريون القدماء على الأنوال اليدوية في صناعة الملابس وأقمشة الكتان الشهيرة. تعتمد الحرفة على تحويل الخيوط القطنية أو الصوفية إلى منتجات مميزة عبر النول التقليدي الذي يحتاج مهارة ودقة وصبراً كبيراً.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">⚙️ الأداة الأساسية</div>
+                    <div class="fact-value">النول اليدوي التقليدي (الأرضي والرأسي)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🧵 الخامات</div>
+                    <div class="fact-value">قطن، صوف، خيوط مصبوغة طبيعيًا</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🏠 الاستخدامات</div>
+                    <div class="fact-value">سجاد، كليم، شالات، ملابس تراثية</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🌍 الشهرة</div>
+                    <div class="fact-value">مُصدَّر للخارج ومطلوب دولياً</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ خطوات الصنع:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">تُصبَغ الخيوط بألوان طبيعية أو صناعية وتُجفَّف وتُلفّ على بكر النول.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">يُثبَّت النول ويُضبَط الحرفي الخيوط الأفقية والرأسية بدقة.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">يحرّك الحرفي المكوك بإيقاع ثابت ليتشابك القماش صفاً صفاً.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">تُكمَّل حواف القطعة وتُغسَل وتُعالَج قبل التسليم.</div></div>
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">نول تقليدي</span>
+                <span class="craft-tag">تراث فرعوني</span>
+                <span class="craft-tag">صبغ طبيعي</span>
+                <span class="craft-tag">كليم وسجاد</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/weaving.jpg" alt="النسيج اليدوي" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">🧶 النول التقليدي في قرى الفيوم وأخميم</div>
+            </div>
+            <div class="craft-quote-box">
+                "النول مش مجرد أداة، ده ساعة تحكي — كل صف خيط هو دقيقة من عمر الحرفي مسجّلة في القماشة."
+                <cite>— حرفية من الفيوم</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         3. النحاس
+    ============================= -->
+    <div id="copper-section" class="craft-block">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">🪙</div>
+                <h2>النحاس</h2>
+            </div>
+            <span class="craft-origin">📍 خان الخليلي — شارع المعز — القاهرة</span>
+            <p class="craft-desc">
+                تُعد صناعة النحاس من الحرف اليدوية العريقة التي اشتهرت بها مصر منذ العصور الإسلامية. تتضمن عدة فنون متداخلة؛ من الحفر والنقش البسيط، إلى التطعيم بالفضة وهو أرقى درجاتها، حيث تُدمج خيوط الفضة الصافية داخل سطح النحاس لتخلق قطعاً فنية لا تُقدَّر بثمن.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🔨 التقنيات</div>
+                    <div class="fact-value">الحفر، النقش، التطعيم بالفضة</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🏺 المنتجات</div>
+                    <div class="fact-value">أواني، صواني، فوانيس، تحف زخرفية</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🎨 الزخارف</div>
+                    <div class="fact-value">آيات قرآنية، أرابيسك، نقوش هندسية</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">✨ أرقى درجاتها</div>
+                    <div class="fact-value">تطعيم النحاس بخيوط الفضة الصافية</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ خطوات الصنع:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">يُطرق النحاس على سندان خاص ويُشكَّل على هيئة الإناء أو القطعة المطلوبة.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">يُرسم التصميم بقلم خاص على سطح النحاس قبل الشروع في الحفر.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">يُحفر التصميم بأزاميل دقيقة بأحجام مختلفة حسب نوع الخط والزخرفة.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">تُلمَّع القطعة وتُعالَج بمواد خاصة لإبراز بريق النحاس وحمايته.</div></div>
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">خان الخليلي</span>
+                <span class="craft-tag">تراث إسلامي</span>
+                <span class="craft-tag">تطعيم بالفضة</span>
+                <span class="craft-tag">فن الأرابيسك</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/copper.jpg" alt="صناعة النحاس" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">🪙 حرفي النحاس في خان الخليلي بالقاهرة</div>
+            </div>
+            <div class="craft-quote-box">
+                "طَرق المطرقة على النحاس موسيقى أزقة القاهرة القديمة — صوت بقي يتردد منذ مئات السنين."
+                <cite>— حرفي من خان الخليلي</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         4. الفخار
+    ============================= -->
+    <div id="pottery-section" class="craft-block reverse">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">🏺</div>
+                <h2>الفخار</h2>
+            </div>
+            <span class="craft-origin">📍 قرية تونس — الفيوم &nbsp;|&nbsp; الفسطاط — أسوان</span>
+            <p class="craft-desc">
+                تُعتبر صناعة الفخار من أقدم الحرف التي عرفتها الحضارة الإنسانية، وقد تميز المصري القديم باستخدام طين النيل الخصيب في صناعة الأواني والأدوات اليومية. في قرية تونس بالفيوم، أسهمت الفنانة السويسرية إيفلين بوريه في نشر هذه الحرفة عالمياً وتطوير أساليبها.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🌾 المادة الأساسية</div>
+                    <div class="fact-value">طين النيل الطبيعي والطين الأحمر</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🔥 درجة الحرق</div>
+                    <div class="fact-value">من 800 إلى 1200 درجة مئوية</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🎨 التزيين</div>
+                    <div class="fact-value">طلاء بالتراب الملوّن والأكاسيد الطبيعية</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🏺 الاستخدامات</div>
+                    <div class="fact-value">زينة، أواني منزلية، أعمال فنية</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ خطوات الصنع:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">يُعجَن الطين ويُنقَّى من الشوائب، ثم يُترك ليكتسب قوامًا مناسبًا.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">يُشكَّل الطين على الدولاب الدوّار بيدي الحرفي ليتخذ شكل القطعة المطلوبة.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">تُجفَّف القطعة في الهواء لأيام، ثم تُزيَّن بالنقوش قبل الحرق.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">تُحرَق في الفرن التقليدي، وتُطلَى بالجليز أو تُترك طبيعية حسب التصميم.</div></div>
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">طين النيل</span>
+                <span class="craft-tag">دولاب الفخار</span>
+                <span class="craft-tag">قرية تونس</span>
+                <span class="craft-tag">إيفلين بوريه</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/pottery.jpg" alt="الفخار" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">🏺 الفخار في قرية تونس — الفيوم</div>
+            </div>
+            <div class="craft-quote-box">
+                "الطين يحكي عمر الأرض، وأيدي الحرفي تكتب فوقه تاريخ الإنسان — الفخار هو الكتاب الأول."
+                <cite>— حرفية من قرية تونس</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         5. الخوص
+    ============================= -->
+    <div id="khouss-section" class="craft-block">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">🌿</div>
+                <h2>الخوص</h2>
+            </div>
+            <span class="craft-origin">📍 النوبة — أسوان</span>
+            <p class="craft-desc">
+                حرفة بيئية تقليدية عريقة تعتمد على سعف النخيل (الخوص) والجريد والعرجون. تتوارثها الأمهات لبناتهن كطقس اجتماعي أصيل، وتحمل رسومها دلالات رمزية نوبية عميقة كالمثلثات التي ترمز للخير والنيل، والعيون التي ترمز للحماية من الحسد.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🌴 المواد الخام</div>
+                    <div class="fact-value">سعف النخيل (الخوص)، الجريد، العرجون</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🎨 الألوان</div>
+                    <div class="fact-value">صبغات عضوية زاهية: أحمر، أخضر، أزرق، أصفر</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🔧 التقنية</div>
+                    <div class="fact-value">الجدل الحلزوني والضفائر اليدوية</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🧺 أشهر المنتجات</div>
+                    <div class="fact-value">الشوربجي، البرش، الشنط، القبعات</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ خطوات الصنع:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">يُجفَّف السعف في الشمس حتى يصفر ويفقد رطوبته الزائدة.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">يُنقَع في الماء ليُصبح مرناً وقابلاً للثني والتشكيل دون كسر.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">تُغلى الصبغات العضوية في الماء ويُغمَر الخوص فيها لتلوينه بالألوان المطلوبة.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">تُضفَّر الخيوط بتقنية الجدل الحلزوني لتتشكل المنتجات النهائية.</div></div>
+            </div>
+            <div class="cultural-note">
+                <strong>🔶 البُعد الثقافي:</strong> تحمل الرسوم دلالات رمزية نوبية — المثلثات ترمز للخير والنيل، والعيون للحماية من الحسد. وتُعدّ الحرفة طقساً اجتماعياً تتوارثه الأمهات لبناتهن جيلاً بعد جيل.
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">سعف النخيل</span>
+                <span class="craft-tag">تراث نوبي</span>
+                <span class="craft-tag">صبغات عضوية</span>
+                <span class="craft-tag">جدل حلزوني</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/khouss.jpg" alt="الخوص" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">🌿 حرفة الخوص في قرى النوبة بأسوان</div>
+            </div>
+            <div class="craft-quote-box">
+                "كل سلة من الخوص هي قصيدة بسعف النخيل — الألوان كلام والضفائر حروف من تراث النوبة."
+                <cite>— حرفية نوبية من أسوان</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         6. الأعمال بالخرز
+    ============================= -->
+    <div id="kharz-section" class="craft-block reverse">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">📿</div>
+                <h2>الأعمال بالخرز</h2>
+            </div>
+            <span class="craft-origin">📍 غرب سهيل — جزيرة هيسا — أسوان</span>
+            <p class="craft-desc">
+                تصميم الإكسسوارات والزينة الملونة بدقة متناهية ونقوش مستوحاة من التراث الشعبي النوبي. تمثل مشروعاً متناهي الصغر لآلاف السيدات في قرى أسوان، وتلقى رواجاً سياحياً كبيراً نظراً لجماليتها الفريدة.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">💎 الخامات</div>
+                    <div class="fact-value">خرز زجاجي، بلاستيك مقوى، خشب، خيوط نايلون</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🔧 التقنية</div>
+                    <div class="fact-value">النول الصغير أو الإبرة والخيط اليدوي</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">💍 الإكسسوارات</div>
+                    <div class="fact-value">قلائد، أساور، أقراط، العقد النوبي العريض</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🏠 الزينة المنزلية</div>
+                    <div class="fact-value">ستائر خرزية، أغطية مصابيح، حقائب يد</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ طريقة الصنع:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">تُختار حبات الخرز بعناية وتُصنَّف حسب الحجم واللون بناءً على النمط المطلوب.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">تُنظَّم الحبات واحدة تلو الأخرى بناءً على نمط هندسي مرسوم في مخيلة الحرفية.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">تُربط الخيوط بإحكام لتشكيل نسيج خرزي متماسك ودقيق.</div></div>
+            </div>
+            <div class="cultural-note">
+                <strong>👗 الطقوس والمناسبات:</strong> تُستخدم لتزيين ثوب "الجرجار" الأسود التقليدي، وتجهيز "شملة" العروس — وهي قطع تحمل بُعداً طقسياً واجتماعياً عميقاً في الثقافة النوبية.
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">تراث نوبي</span>
+                <span class="craft-tag">العقد النوبي</span>
+                <span class="craft-tag">زينة العروس</span>
+                <span class="craft-tag">صناعة منزلية</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/kharz.jpg" alt="الأعمال بالخرز" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">📿 الأعمال بالخرز في قرى النوبة بأسوان</div>
+            </div>
+            <div class="craft-quote-box">
+                "كل حبة خرز اخترتها بعيني وربطتها بيدي — فيها جزء من روحي وتراث أهلي."
+                <cite>— حرفية من جزيرة هيسا</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         7. ورق البردي
+    ============================= -->
+    <div id="papyrus-section" class="craft-block">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">📜</div>
+                <h2>ورق البردي</h2>
+            </div>
+            <span class="craft-origin">📍 القرنة — الأقصر</span>
+            <p class="craft-desc">
+                إعادة إحياء الفن الفرعوني بتصنيع الورق من نبات البردي الطبيعي وتزيينه بنقوش ورسومات المعابد القديمة. منتج تذكاري فاخر لا يتأثر بالزمن ويمكن حفظه لمئات السنين — ورق الأجداد الذي سافر عبر آلاف السنين ليصل إلى أيدينا.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🌱 النبات</div>
+                    <div class="fact-value">ساق ثلاثية الأضلاع، لبّ أبيض إسفنجي</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🎨 الرسم</div>
+                    <div class="fact-value">ألوان مائية، جواش، ألوان مضيئة</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🖼️ المواضيع</div>
+                    <div class="fact-value">مشاهد فرعونية، محاكمة حورس، التوحيد</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">♾️ العمر</div>
+                    <div class="fact-value">يُحفَظ لمئات السنين دون تلف</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ مراحل التصنيع التقليدية:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">تُقطع ساق البردي وتُقشَّر قشرتها الخارجية للوصول إلى اللب الأبيض الإسفنجي.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">يُقطع اللب إلى شرائح طولية رقيقة ثم تُدقّ بمطرقة لكسر الألياف.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">تُنقَع في الماء — نقع قصير للورق الفاتح اللون، ونقع طويل للورق الغامق.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">تُرصّ الشرائح متقاطعة (أفقي وعمودي) وتوضع تحت مكبس ضخم لأيام حتى تجف وتلتصق بصمغها الطبيعي.</div></div>
+                <div class="step-item"><div class="step-num">٥</div><div class="step-text">يرسم الفنانون عليها المشاهد الفرعونية بالألوان المائية أو الجواش.</div></div>
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">تراث فرعوني</span>
+                <span class="craft-tag">لب النبات الطبيعي</span>
+                <span class="craft-tag">نقوش معابد</span>
+                <span class="craft-tag">يدوم للأبد</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/papyrus.jpg" alt="ورق البردي" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">📜 صناعة ورق البردي في الأقصر</div>
+            </div>
+            <div class="craft-quote-box">
+                "البردي هو ذاكرة مصر المكتوبة — كتب عليه الأجداد أسرار الكون، ونحن نكتب عليه استمرار الحضارة."
+                <cite>— فنان بردي من الأقصر</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         8. صناعة الأختام
+    ============================= -->
+    <div id="seals-section" class="craft-block reverse">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">🔏</div>
+                <h2>صناعة الأختام يدوياً</h2>
+            </div>
+            <span class="craft-origin">📍 إسنا — جنوب الأقصر</span>
+            <p class="craft-desc">
+                حفر الأسماء والزخارف يدويًا على الخشب أو المعادن بنقوش مستوحاة من التراث المصري القديم والعربي. رغم التطور التكنولوجي، يُطلب الختم اليدوي للوجاهة الاجتماعية والتوثيق العرفي لدى عائلات الصعيد وكتحفة فنية. وهي حرفة مهددة بالانقراض وصناعها كنز بشري حي.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🪨 الخامات</div>
+                    <div class="fact-value">نحاس أصفر، فضة، خشب صلب، أحجار شبه كريمة</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🔧 الأدوات</div>
+                    <div class="fact-value">المنقاش (أزميل دقيق)، المبرد، قلم الحبر</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">✍️ الخطوط</div>
+                    <div class="fact-value">ديواني، ثلث، رقعة — كلها بشكل معكوس</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">⚠️ الوضع الحالي</div>
+                    <div class="fact-value">حرفة مهددة بالانقراض</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ مراحل التصنيع:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">يكتب الحرفي الاسم بالخط العربي القديم على سطح الختم بشكل معكوس (مقلوب).</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">تُحفر الفراغات المحيطة بالاسم بدقة تحت عدسة مكبرة ليظل الاسم بارزاً.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">يُركَّب مقبض صغير للختم من نفس المادة أو مادة مختلفة لتسهيل استخدامه.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">تُصنفَر وتُلمَّع القطعة النهائية لإبراز حدة النقش ولمعان المعدن.</div></div>
+            </div>
+            <div class="cultural-note">
+                <strong>⚠️ حرفة مهددة:</strong> الختم اليدوي مطلوب اليوم للوجاهة الاجتماعية والتوثيق العرفي لدى عائلات الصعيد — وصناعه كنز بشري حي يجب الحفاظ عليه.
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">خط عربي</span>
+                <span class="craft-tag">نحاس وفضة</span>
+                <span class="craft-tag">حرفة مهددة</span>
+                <span class="craft-tag">تراث الصعيد</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/seals.jpg" alt="صناعة الأختام" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">🔏 حرفي الأختام اليدوية في إسنا</div>
+            </div>
+            <div class="craft-quote-box">
+                "الختم هو توقيع الإنسان على التاريخ — وكل ختم يحفره يدي هو شاهد على حضارة لا تموت."
+                <cite>— حرفي أختام من إسنا</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         9. الألباستر
+    ============================= -->
+    <div id="alabaster-section" class="craft-block">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">🗿</div>
+                <h2>الألباستر (المرمر)</h2>
+            </div>
+            <span class="craft-origin">📍 القرنة — غرب الأقصر</span>
+            <p class="craft-desc">
+                نحت حجر الألباستر الطبيعي يدويًا لتحويله إلى تماثيل وأوانٍ ومصابيح تتميز بلونها الشفاف الناعم. حجر طبيعي ناعم نافذ للضوء يُجلب من محاجر الصحراء الشرقية ووسط مصر، ومنتجاته تحمل روح الحضارة الفرعونية في كل قطعة.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🪨 ألوان الحجر</div>
+                    <div class="fact-value">أبيض ثلجي، أصفر شمعي (الأثمن)، أخضر بازلتي</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🔧 الأدوات</div>
+                    <div class="fact-value">منشار يدوي، أزميل وشافوط، مبرد يدوي</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">✨ التشطيب</div>
+                    <div class="fact-value">صنفرة بالماء + شمع طبيعي لإعطاء اللمعان</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🏺 المنتجات</div>
+                    <div class="fact-value">مزهريات، حاملات شموع، تماثيل فرعونية، أطباق</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ خطوات التصنيع اليدوي:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">تقطيع الكتل الصخرية بالمنشار اليدوي حسب الحجم المطلوب للقطعة.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">تفريغ الحجر من الداخل (للأواني والفازات) باستخدام الأزميل والشافوط.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">نحت الشكل الخارجي وتنعيمه بالمبرد اليدوي حتى يظهر التصميم المطلوب.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">صنفرة بالماء التدريجية، ثم تسخين وطلاء بالشمع الطبيعي لإعطاء اللمعان والشفافية.</div></div>
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">حجر طبيعي</span>
+                <span class="craft-tag">تراث فرعوني</span>
+                <span class="craft-tag">نافذ للضوء</span>
+                <span class="craft-tag">القرنة</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/alabaster.jpg" alt="الألباستر" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">🗿 نحت الألباستر في القرنة بالأقصر</div>
+            </div>
+            <div class="craft-quote-box">
+                "الألباستر يحمل نور الشمس جوّاه — لمّا تشعل شمعة جنبيه، الحجر نفسه بيتكلم."
+                <cite>— نحّات من القرنة</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         10. صناعة المراكب
+    ============================= -->
+    <div id="boats-section" class="craft-block reverse">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">⚓</div>
+                <h2>صناعة المراكب يدوياً</h2>
+            </div>
+            <span class="craft-origin">📍 منطقة الأنفوشي — الإسكندرية</span>
+            <p class="craft-desc">
+                صناعة يدوية بالكامل تعتمد على الأخشاب الطبيعية المتينة المقاومة للملوحة والرطوبة. ما زالت مستمرة بالأنفوشي كشاهد حي على التراث الشعبي البحري للمدينة، تتوارثها الأجيال من الآباء إلى الأبناء. المركب الخشبي اليدوي يتميز بمتانة ومرونة في مواجهة الأمواج لا توفرها المواد الحديثة.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🪵 أخشاب الهيكل</div>
+                    <div class="fact-value">خشب التوت واللبخ (الضلوع والشواني)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🪵 أخشاب الجسم</div>
+                    <div class="fact-value">خشب السويد أو التاك (الجسم الخارجي)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🔩 التثبيت</div>
+                    <div class="fact-value">مسامير مجلفنة أو نحاسية مقاومة للصدأ</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">⛵ المنتجات</div>
+                    <div class="fact-value">مراكب صيد، يخوت، مراكب نزهة</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ خطوات البناء:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">وضع العارضة الرئيسية — العمود الفقري للمركب الذي يُبنى عليه كل شيء.</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">تركيب الضلوع (الشواني): تُشكَّل وتُثنى الأخشاب باستخدام الحرارة والنار لأخذ المنحنى المطلوب.</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">التلويح: تثبيت الألواح الخارجية بمسامير ضخمة مقاومة للصدأ.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">القلفطة: حشو الفراغات بفتيل قطن مشبع بالزفت الساخن لمنع تسرب المياه.</div></div>
+                <div class="step-item"><div class="step-num">٥</div><div class="step-text">الدهان: الطلاء بمواد عازلة وألوان زاهية تعكس هوية المدينة البحرية.</div></div>
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">أخشاب طبيعية</span>
+                <span class="craft-tag">تراث بحري</span>
+                <span class="craft-tag">الأنفوشي</span>
+                <span class="craft-tag">حرفة متوارثة</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/boats.jpg" alt="صناعة المراكب" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">⚓ صناعة المراكب الخشبية في الأنفوشي بالإسكندرية</div>
+            </div>
+            <div class="craft-quote-box">
+                "المركب الخشبي مش بس وسيلة — ده بيت عايم اتبنى بأيدي رجال عرفوا سر البحر وعشقوا الموج."
+                <cite>— صانع مراكب من الأنفوشي</cite>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         11. التطعيم بالصدف
+    ============================= -->
+    <div id="shell-section" class="craft-block">
+        <div class="craft-text">
+            <div class="craft-header">
+                <div class="craft-icon-badge">🐚</div>
+                <h2>التطعيم بالصدف</h2>
+            </div>
+            <span class="craft-origin">📍 القاهرة التاريخية — خان الخليلي</span>
+            <p class="craft-desc">
+                فن شرقي دقيق لإدخال قطع الصدف الطبيعي داخل الأخشاب لصناعة الصناديق التراثية والأثاث الفاخر. تتطلب هذه الحرفة وقتاً طويلاً وحسابات هندسية دقيقة، مما يجعل كل قطعة لوحة فنية استثمارية تجمع بين النجارة والزخرفة والهندسة في آنٍ واحد.
+            </p>
+            <div class="craft-facts">
+                <div class="fact-item">
+                    <div class="fact-label">🪵 الأخشاب</div>
+                    <div class="fact-value">جوز، زان، أبنوس، ورد (لا تلتوي)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🐚 الصدف</div>
+                    <div class="fact-value">صدف بحر أحمر، صدف نيلي، أو عظم</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🔧 الأداة الرئيسية</div>
+                    <div class="fact-value">منشار رفيع (أركت) لتقطيع الصدف</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">🛋️ المنتجات</div>
+                    <div class="fact-value">صالونات فاخرة، علب، طاولات شطرنج، مصاحف</div>
+                </div>
+            </div>
+            <div class="craft-steps-title">⚙️ مراحل العمل:</div>
+            <div class="craft-steps">
+                <div class="step-item"><div class="step-num">١</div><div class="step-text">النجارة والخرط: تجهيز القطعة الخشبية الأساسية (صندوق، منضدة، كرسي).</div></div>
+                <div class="step-item"><div class="step-num">٢</div><div class="step-text">الحفر والتخويش: حفر مسارات غائرة بناءً على تصميم هندسي إسلامي (طبق نجمي، أرابيسك).</div></div>
+                <div class="step-item"><div class="step-num">٣</div><div class="step-text">تقطيع الصدف: تقطيع قشور الصدف بمنشار رفيع لقطع صغيرة تطابق الحفر تماماً.</div></div>
+                <div class="step-item"><div class="step-num">٤</div><div class="step-text">التطعيم واللصق: إسقاط قطع الصدف داخل الفراغات ولصقها بغراء قوي.</div></div>
+                <div class="step-item"><div class="step-num">٥</div><div class="step-text">التصفية والتشطيب: صنفرة القطعة ليتساوى الصدف مع الخشب، ثم طلاؤها لإبراز التباين اللوني.</div></div>
+            </div>
+            <div class="craft-tags">
+                <span class="craft-tag">زخرفة إسلامية</span>
+                <span class="craft-tag">أثاث فاخر</span>
+                <span class="craft-tag">صدف طبيعي</span>
+                <span class="craft-tag">حسابات هندسية</span>
+            </div>
+        </div>
+        <div class="craft-visual">
+            <div class="craft-img-wrap">
+                <img src="images/shell.jpg" alt="التطعيم بالصدف" onerror="this.src='images/hero-bg.jpg'">
+                <div class="craft-img-label">🐚 التطعيم بالصدف في خان الخليلي بالقاهرة</div>
+            </div>
+            <div class="craft-quote-box">
+                "كل قطعة صدف بحجم الظفر تحتاج ساعة من التركيز — لما تكتمل القطعة، بتحس إنك رسمت بيدك نجمة من البحر."
+                <cite>— حرفي تطعيم من القاهرة</cite>
+            </div>
+        </div>
+    </div>
+
+</div><!-- end crafts-body -->
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="footer-logo brand-font">شَذَرات<span class="logo-en">SHAZHARAT</span></div>
+            <p>منصة تهتم بالتراث المصري الأصيل؛ حرف، أماكن، وقصص من الماضي إلى الحاضر.</p>
+        </div>
+        <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="crafts.html">الحرف اليدوية</a></li>
+                <li><a href="index.html#places-section">المناطق الأثرية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>الحرف اليدوية</h4>
+            <ul>
+                <li><a href="#khayamiya-section">الخيامية</a></li>
+                <li><a href="#weaving-section">النسيج اليدوي</a></li>
+                <li><a href="#copper-section">النحاس</a></li>
+                <li><a href="#pottery-section">الفخار</a></li>
+                <li><a href="#khouss-section">الخوص</a></li>
+                <li><a href="#kharz-section">الأعمال بالخرز</a></li>
+                <li><a href="#papyrus-section">ورق البردي</a></li>
+                <li><a href="#seals-section">صناعة الأختام</a></li>
+                <li><a href="#alabaster-section">الألباستر</a></li>
+                <li><a href="#boats-section">صناعة المراكب</a></li>
+                <li><a href="#shell-section">التطعيم بالصدف</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>المناطق الأثرية</h4>
+            <ul>
+                <li><a href="luxor.html">الأقصر</a></li>
+                <li><a href="cairo.html">القاهرة</a></li>
+                <li><a href="aswan.html">أسوان</a></li>
+                <li><a href="fayoum.html">الفيوم</a></li>
+                <li><a href="portsaid.html">بورسعيد</a></li>
+                <li><a href="alexandria.html">الإسكندرية</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>حقوق النشر © 2026 شذرات - جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    if (menuToggle) menuToggle.onclick = function() { navLinks.classList.toggle("open"); }
+
+    // Active pill on scroll
+    const sections = document.querySelectorAll('[id$="-section"]');
+    const pills = document.querySelectorAll('.crafts-nav-bar a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 130) current = s.id;
+        });
+        pills.forEach(a => {
+            a.classList.remove('pill-active');
+            if (a.getAttribute('href') === '#' + current) a.classList.add('pill-active');
+        });
+    });
+</script>
+</body>
+</html>
