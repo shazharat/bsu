@@ -150,51 +150,51 @@
             <button class="slider-btn" id="slidePrev">&#8250;</button>
             <div class="crafts-slider" id="craftsSlider">
                 <div class="crafts-track" id="craftsTrack">
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('pottery')">
                         <div class="card-img-container"><img src="images/pottery.jpg" alt="الفخار"></div>
                         <div class="card-info"><h3>الفخار</h3><p>من الطين تصنع الحياة</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('copper')">
                         <div class="card-img-container"><img src="images/copper.jpg" alt="النحاس"></div>
                         <div class="card-info"><h3>النحاس</h3><p>حرفة تتوارثها الأجيال</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('weaving')">
                         <div class="card-img-container"><img src="images/weaving.jpg" alt="النسيج اليدوي"></div>
                         <div class="card-info"><h3>النسيج اليدوي</h3><p>خيوط من الفن والتراث</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('khayamiya')">
                         <div class="card-img-container"><img src="images/khayamiya.jpg" alt="الخيامية"></div>
                         <div class="card-info"><h3>الخيامية</h3><p>ألوان تحكي الهوية</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('arabesque')">
                         <div class="card-img-container"><img src="images/pottery.jpg" alt="الأرابيسك"></div>
                         <div class="card-info"><h3>الأرابيسك</h3><p>زخارف من روح مصر</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('khouss')">
                         <div class="card-img-container"><img src="images/khouss.jpg" alt="الخوص"></div>
                         <div class="card-info"><h3>الخوص</h3><p>فن نسج سعف النخيل</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('kharz')">
                         <div class="card-img-container"><img src="images/kharz.jpg" alt="الأعمال بالخرز"></div>
                         <div class="card-info"><h3>الأعمال بالخرز</h3><p>زينة تُصنع بأيادي ماهرة</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('papyrus')">
                         <div class="card-img-container"><img src="images/papyrus.jpg" alt="ورق البردى"></div>
                         <div class="card-info"><h3>ورق البردى</h3><p>أقدم ورق عرفه الإنسان</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('seals')">
                         <div class="card-img-container"><img src="images/seals.jpg" alt="صناعة الأختام"></div>
                         <div class="card-info"><h3>صناعة الأختام يدوياً</h3><p>توقيع الحضارة على الحجر</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('alabaster')">
                         <div class="card-img-container"><img src="images/alabaster.jpg" alt="الألباستر"></div>
                         <div class="card-info"><h3>الألباستر</h3><p>نقش الجمال في الحجر</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('boats')">
                         <div class="card-img-container"><img src="images/boats.jpg" alt="صناعة المراكب"></div>
                         <div class="card-info"><h3>صناعة المراكب</h3><p>حرفة تعانق النيل</p></div>
                     </div>
-                    <div class="craft-card">
+                    <div class="craft-card" onclick="openCraft('shell')">
                         <div class="card-img-container"><img src="images/shell.jpg" alt="التطعيم بالصدف"></div>
                         <div class="card-info"><h3>التطعيم بالصدف</h3><p>لمعة البحر في يد الحرفي</p></div>
                     </div>
@@ -203,6 +203,34 @@
             <button class="slider-btn" id="slideNext">&#8249;</button>
         </div>
     </section>
+
+    <!-- موودال الحرف -->
+    <div id="craftModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); overflow-y:auto;">
+        <div style="background:#fcfbfa; margin:3% auto; border-radius:16px; width:90%; max-width:900px; position:relative; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.3); animation:fadeIn 0.4s ease-out;">
+            <!-- هيرو الموودال -->
+            <div id="craftModalHero" style="height:250px; background:linear-gradient(rgba(11,43,26,0.6),rgba(11,43,26,0.8)), url('') center/cover no-repeat; display:flex; flex-direction:column; justify-content:flex-end; padding:25px 30px;">
+                <span id="craftModalOrigin" style="display:inline-block; background:#b94a24; color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:20px; margin-bottom:12px; width:fit-content;"></span>
+                <h2 id="craftModalTitle" style="font-family:'Reem Kufi',sans-serif; font-size:36px; color:#f4ede2; margin:0; text-shadow:2px 4px 15px rgba(0,0,0,0.5);"></h2>
+            </div>
+            <!-- زر الإغلاق -->
+            <button onclick="document.getElementById('craftModal').style.display='none'" style="position:absolute; top:15px; left:15px; background:rgba(0,0,0,0.5); border:none; color:#fff; width:36px; height:36px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center;">×</button>
+            <!-- المحتوى -->
+            <div style="padding:30px; display:grid; grid-template-columns:1fr 280px; gap:30px;" id="craftModalBody">
+                <div>
+                    <p id="craftModalDesc" style="font-size:15px; line-height:2; color:#4a3d32; margin-bottom:25px; background:#fff; padding:20px; border-radius:10px; border-right:4px solid #0b2b1a;"></p>
+                    <div id="craftModalFacts" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:25px;"></div>
+                    <div id="craftModalStepsTitle" style="font-size:15px; font-weight:700; color:#0b2b1a; margin-bottom:12px;"></div>
+                    <div id="craftModalSteps" style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px;"></div>
+                    <div id="craftModalTags" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:15px;">
+                    <img id="craftModalImg" src="" alt="" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.15);">
+                    <div id="craftModalQuote" style="background:#0b2b1a; border-radius:12px; padding:20px; color:#d1c7bd; font-size:13px; line-height:1.8; font-style:italic;"></div>
+                    <a id="craftModalLink" href="#" style="display:block; text-align:center; background:#b94a24; color:#fff; padding:12px; border-radius:25px; text-decoration:none; font-weight:700; font-size:14px; transition:background 0.3s;">اقرأ المزيد في صفحة الحرف ←</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- قسم قصص وحكايات -->
     <section class="stories-section">
@@ -284,7 +312,6 @@
     </div>
 
     <!-- باقي الصفحة بعد السكشن بتاع القصص -->
-    </section>
 
     <!-- أماكن تحكي التاريخ -->
     <section id="places-section" class="places-section">
@@ -383,9 +410,162 @@
         btnHeader.onclick = function() { modal.style.display = "block"; }
         btnFooter.onclick = function() { modal.style.display = "block"; }
         closeBtn.onclick = function() { modal.style.display = "none"; }
+        // بيانات الحرف
+        const craftsData = {
+            pottery: {
+                title: 'الفخار', icon: '🏺', origin: '📍 قرية تونس — الفيوم',
+                img: 'images/pottery.jpg', link: 'crafts.html#pottery-section',
+                desc: 'من أقدم الحرف المصرية، تعتمد على تشكيل الطين الطبيعي يدويًا ثم حرقه في أفران خاصة. تتميز منتجاتها بزخارفها الرائعة وألوانها الهادئة المستوحاة من الطبيعة.',
+                facts: [['🏺 الخامة','طين طبيعي محلي'],['🔥 الحرق','أفران تقليدية 900°'],['🎨 الزخرفة','نقوش يدوية بألوان طبيعية'],['📍 المركز','قرية تونس بالفيوم']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['عجن الطين وتنقيته من الشوائب','تشكيل القطعة على العجلة اليدوية','التجفيف في الهواء الطلق','الحرق الأول في الفرن','الزخرفة بالألوان الطبيعية','الحرق الثاني لتثبيت الألوان'],
+                tags: ['طين طبيعي','فيوم','حرفة قديمة','زخارف يدوية'],
+                quote: '"لما بتحط إيدك في الطين، بتحس إنك بتلمس نفس الطينة اللي شكّل بيها أجدادك الأوانٍ من آلاف السنين." — حرفي من تونس'
+            },
+            copper: {
+                title: 'النحاس', icon: '🔨', origin: '📍 القاهرة — شارع المعز',
+                img: 'images/copper.jpg', link: 'crafts.html#copper-section',
+                desc: 'حرفة يدوية دقيقة تعتمد على نحت الزخارف الإسلامية على الأواني والتحف النحاسية. تُعدّ من أقدم الحرف المعدنية في مصر وتتركز في خان الخليلي.',
+                facts: [['🔩 الخامة','نحاس خالص أو مشبوك'],['🔨 الأداة','قلم الحفر والمطرقة'],['🎨 الزخرفة','نقوش إسلامية هندسية'],['📍 المركز','خان الخليلي — القاهرة']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['تحديد التصميم ورسمه على الورق','نقل التصميم على الصفيحة النحاسية','الحفر التدريجي بالقلم والمطرقة','اللحام والتشكيل إذا لزم','التلميع بمواد خاصة','التشطيب النهائي'],
+                tags: ['نحاس','خان الخليلي','زخارف إسلامية','حرفة يدوية'],
+                quote: '"كل نقطة بتحفرها في النحاس بتاخد وقت وتركيز — الزبون بيشتري قطعة، أنا بأبيعله سنين من الخبرة." — حرفي نحاس من المعز'
+            },
+            weaving: {
+                title: 'النسيج اليدوي', icon: '🧵', origin: '📍 قرية ديسة — الفيوم',
+                img: 'images/weaving.jpg', link: 'crafts.html#weaving-section',
+                desc: 'يتم إنتاجه باستخدام الأنوال اليدوية التقليدية بصبغ وزخارف هندسية دقيقة. تحتاج هذه الحرفة إلى دقة وصبر كبيرين لتخرج كل قطعة كلوحة فنية فريدة.',
+                facts: [['🧵 الخيط','صوف طبيعي وقطن'],['🎨 الصبغة','نباتية طبيعية'],['⏱️ الوقت','أسابيع للقطعة الواحدة'],['📍 المركز','قرية ديسة — الفيوم']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['غزل الخيوط وصباغتها بألوان طبيعية','تجهيز النول وإعداد السداء','بدء النسيج خيطاً خيطاً','تنفيذ الزخارف الهندسية','التشطيب وقص الخيوط الزائدة','الغسيل والكي'],
+                tags: ['نسيج يدوي','فيوم','صوف طبيعي','زخارف هندسية'],
+                quote: '"النول بيحكي — كل صوت نقرة فيه قصة. أنا مش بنسج قماش، أنا بنسج ذكريات." — نساجة من ديسة'
+            },
+            khayamiya: {
+                title: 'الخيامية', icon: '🎪', origin: '📍 شارع الخيامية — القاهرة',
+                img: 'images/khayamiya.jpg', link: 'crafts.html#khayamiya-section',
+                desc: 'تطريز الأقمشة يدويًا بالكامل بزخارف مستوحاة من الفن الإسلامي. اشتُهر بها شارع الخيامية بالقاهرة الفاطمية منذ مئات السنين.',
+                facts: [['🪡 الخامة','قماش قطني ثقيل'],['✂️ التقنية','تطبيق وتطريز يدوي'],['🎨 الألوان','زاهية ومتناسقة'],['📍 المركز','شارع الخيامية بالقاهرة']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['رسم التصميم على الورق','قص القماش الملون حسب التصميم','تطبيق القطع على القماش الأساسي','التطريز اليدوي لتثبيت الحواف','إضافة التفاصيل الدقيقة','الكي والتشطيب'],
+                tags: ['خيامية','قاهرة','فن إسلامي','تطريز يدوي'],
+                quote: '"كل خيطة في الخيامية بتحكي قصة — ده مش شغل، ده فن إسلامي بايدينا." — حرفي من الخيامية'
+            },
+            arabesque: {
+                title: 'الأرابيسك', icon: '🌿', origin: '📍 القاهرة التاريخية',
+                img: 'images/copper.jpg', link: 'crafts.html#arabesque-section',
+                desc: 'فن إسلامي فريد يعتمد على الحفر والزخرفة الهندسية الدقيقة على الخشب. يتميز بأنماطه المتكررة والمتشابكة المستوحاة من الهندسة الإسلامية.',
+                facts: [['🪵 الخامة','خشب الجوز والزان'],['🔧 الأداة','أزاميل الحفر الدقيقة'],['📐 التصميم','هندسة إسلامية رياضية'],['📍 المركز','القاهرة التاريخية']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['رسم التصميم الهندسي بدقة رياضية','نقل التصميم على الخشب','الحفر التدريجي بالأزاميل','التفريغ والتشبيك','التشطيب والصنفرة','الورنيش لحماية العمل'],
+                tags: ['أرابيسك','خشب','هندسة إسلامية','زخرفة'],
+                quote: '"الأرابيسك مش مجرد نقش — ده علم رياضيات وفن في آن واحد، كل خط له حساب." — نجار من القاهرة'
+            },
+            khouss: {
+                title: 'الخوص', icon: '🌴', origin: '📍 أسوان والصعيد',
+                img: 'images/khouss.jpg', link: 'crafts.html#khouss-section',
+                desc: 'حرفة بيئية تقليدية تعتمد على استخدام سعف النخيل لصناعة السلال والحقائب والأدوات المنزلية. من أقدم الحرف المصرية المرتبطة بالنيل.',
+                facts: [['🌴 الخامة','سعف النخيل الطازج'],['🎨 الصبغة','ألوان طبيعية نباتية'],['♻️ البيئة','حرفة صديقة للبيئة'],['📍 المركز','أسوان والصعيد']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['جمع سعف النخيل وتجفيفه','تقطيعه لشرائح بعرض مناسب','صبغ الشرائح بألوان طبيعية','بدء النسج من المركز دائريًا','إضافة الزخارف الملونة','التشطيب وتثبيت الحواف'],
+                tags: ['خوص','سعف نخيل','أسوان','بيئي'],
+                quote: '"سعفة النخلة مش بس أكل — دي مشاعل ومراوح وسلال وبيوت. النخلة بتكسي وبتطعم." — حرفية من أسوان'
+            },
+            kharz: {
+                title: 'الأعمال بالخرز', icon: '📿', origin: '📍 أسوان — النوبة',
+                img: 'images/kharz.jpg', link: 'crafts.html#kharz-section',
+                desc: 'تصميم الإكسسوارات والزينة الملونة بدقة متناهية ونقوش مستوحاة من التراث الشعبي النوبي. ترتبط هذه الحرفة بهوية المرأة النوبية.',
+                facts: [['📿 الخامة','خرز زجاجي وبلاستيكي'],['🎨 الألوان','زاهية ونوبية أصيلة'],['✋ التقنية','نظم يدوي دقيق'],['📍 المركز','النوبة — أسوان']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['اختيار الخرز والألوان','رسم التصميم النوبي','نظم الخرز على الخيط المتين','تنفيذ الزخرفة بالتدرج','ربط النهايات وتشطيبها','الفحص الجودي للقطعة'],
+                tags: ['خرز','نوبة','أسوان','زينة نوبية'],
+                quote: '"كل لون في الخرز له معنى عندنا — الأزرق للنيل، الأحمر للحياة، الأصفر للشمس." — حرفية نوبية'
+            },
+            papyrus: {
+                title: 'ورق البردي', icon: '📜', origin: '📍 الأقصر — القرنة',
+                img: 'images/papyrus.jpg', link: 'crafts.html#papyrus-section',
+                desc: 'إعادة إحياء الفن الفرعوني بتصنيع الورق من نبات البردي الطبيعي وتزيينه بنقوش ورسومات المعابد القديمة. أقدم ورق عرفه الإنسان.',
+                facts: [['🌿 النبات','بردي طبيعي من النيل'],['💧 التجهيز','نقع وضغط وتجفيف'],['🎨 الرسم','ألوان طبيعية قديمة'],['📍 المركز','الأقصر والقاهرة']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['قطع ساق البردي وتقشيره','تقطيع اللب لشرائح رفيعة','نقع الشرائح في الماء','ترتيبها متعامدة وضغطها','تجفيفها تحت الشمس','الرسم عليها بألوان طبيعية'],
+                tags: ['بردي','فرعوني','أقصر','ورق طبيعي'],
+                quote: '"البردي هو الكتاب الأول في التاريخ — وأنا بتشرف إني باصنعه بنفس الطريقة." — صانع بردي من الأقصر'
+            },
+            seals: {
+                title: 'صناعة الأختام', icon: '🔏', origin: '📍 الأقصر — إسنا',
+                img: 'images/seals.jpg', link: 'crafts.html#seals-section',
+                desc: 'حفر الأسماء والزخارف يدويًا على الخشب أو المعادن بنقوش مستوحاة من التراث المصري القديم والعربي. فن دقيق يجمع الخط العربي بالنحت.',
+                facts: [['🪵 الخامة','خشب أو نحاس أو حجر'],['✏️ الأداة','إبرة الحفر الدقيقة'],['✍️ الخط','عربي وفرعوني'],['📍 المركز','الأقصر — إسنا']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['اختيار الخامة المناسبة','رسم النص أو الزخرفة','الحفر الدقيق بالإبرة','التعميق التدريجي للنقش','التنعيم والصنفرة','التلوين أو التذهيب'],
+                tags: ['أختام','خط عربي','إسنا','نحت دقيق'],
+                quote: '"الختم هو توقيعك على التاريخ — لما بتحفره بإيدك، بيبقى جزء منك." — حرفي أختام من إسنا'
+            },
+            alabaster: {
+                title: 'الألباستر', icon: '🗿', origin: '📍 الأقصر — القرنة',
+                img: 'images/alabaster.jpg', link: 'crafts.html#alabaster-section',
+                desc: 'نحت حجر الألباستر الطبيعي يدويًا لتحويله لتماثيل وأوانٍ ومصابيح تتميز بلونها الشفاف الناعم. من أقدم الحرف الفرعونية.',
+                facts: [['🪨 الحجر','ألباستر كربونات الكالسيوم'],['🔧 الأدوات','أزاميل وأقراص جلخ'],['✨ الميزة','شفافية في الضوء'],['📍 المركز','الأقصر — القرنة']],
+                stepsTitle: '⚙️ خطوات الصناعة:',
+                steps: ['اختيار قطعة الألباستر الجيدة','التشكيل الأولي بالمطرقة والأزميل','الخرط على المخرطة','التنعيم التدريجي بأوراق الصنفرة','الصقل النهائي بالكريم','اختبار شفافية الضوء'],
+                tags: ['ألباستر','أقصر','فرعوني','نحت حجر'],
+                quote: '"الألباستر بيحكي بالضوء — لما بتحط شمعة جوا المزهرية، هي بتحكيلك قصة من آلاف السنين." — نحات من القرنة'
+            },
+            boats: {
+                title: 'صناعة المراكب', icon: '⚓', origin: '📍 منطقة الأنفوشي — الإسكندرية',
+                img: 'images/boats.jpg', link: 'crafts.html#boats-section',
+                desc: 'صناعة يدوية بالكامل تعتمد على الأخشاب الطبيعية المتينة المقاومة للملوحة والرطوبة. ما زالت مستمرة بالأنفوشي كشاهد حي على التراث البحري.',
+                facts: [['🪵 الهيكل','خشب التوت واللبخ'],['🪵 الجسم','خشب السويد أو التاك'],['🔩 التثبيت','مسامير نحاسية مقاومة للصدأ'],['⛵ المنتجات','مراكب صيد ويخوت']],
+                stepsTitle: '⚙️ خطوات البناء:',
+                steps: ['وضع العارضة الرئيسية — العمود الفقري','تركيب الضلوع بتشكيلها بالحرارة','التلويح: تثبيت الألواح الخارجية','القلفطة: حشو الفراغات بالزفت','الدهان بمواد عازلة'],
+                tags: ['مراكب','أنفوشي','إسكندرية','تراث بحري'],
+                quote: '"المركب الخشبي مش بس وسيلة — ده بيت عايم اتبنى بأيدي رجال عرفوا سر البحر." — صانع مراكب من الأنفوشي'
+            },
+            shell: {
+                title: 'التطعيم بالصدف', icon: '🐚', origin: '📍 القاهرة — خان الخليلي',
+                img: 'images/shell.jpg', link: 'crafts.html#shell-section',
+                desc: 'فن شرقي دقيق لإدخال قطع الصدف الطبيعي داخل الأخشاب لصناعة الصناديق التراثية والأثاث الفاخر. تتطلب حسابات هندسية دقيقة.',
+                facts: [['🪵 الخشب','جوز، زان، أبنوس'],['🐚 الصدف','بحر أحمر أو نيلي'],['🔧 الأداة','منشار رفيع (أركت)'],['🛋️ المنتجات','صالونات فاخرة وعلب']],
+                stepsTitle: '⚙️ مراحل العمل:',
+                steps: ['النجارة والخرط: تجهيز القطعة الخشبية','الحفر والتخويش بتصميم هندسي','تقطيع الصدف بمنشار رفيع','التطعيم واللصق داخل الفراغات','التصفية لتساوي الصدف مع الخشب'],
+                tags: ['صدف','زخرفة إسلامية','أثاث فاخر','خان الخليلي'],
+                quote: '"كل قطعة صدف بحجم الظفر تحتاج ساعة من التركيز — لما تكتمل القطعة بتحس إنك رسمت نجمة من البحر." — حرفي تطعيم'
+            }
+        };
+
+        function openCraft(id) {
+            const d = craftsData[id];
+            if (!d) return;
+            const modal = document.getElementById('craftModal');
+            const hero = document.getElementById('craftModalHero');
+            hero.style.background = `linear-gradient(rgba(11,43,26,0.6),rgba(11,43,26,0.85)), url('${d.img}') center/cover no-repeat`;
+            document.getElementById('craftModalTitle').textContent = d.icon + ' ' + d.title;
+            document.getElementById('craftModalOrigin').textContent = d.origin;
+            document.getElementById('craftModalDesc').textContent = d.desc;
+            document.getElementById('craftModalImg').src = d.img;
+            document.getElementById('craftModalImg').alt = d.title;
+            document.getElementById('craftModalLink').href = d.link;
+            // Facts
+            const factsEl = document.getElementById('craftModalFacts');
+            factsEl.innerHTML = d.facts.map(f => `<div style="background:#fff;border-radius:10px;padding:13px 15px;border-right:3px solid #b94a24;box-shadow:0 2px 6px rgba(0,0,0,0.04)"><div style="font-size:11px;color:#9c8170;font-weight:700;margin-bottom:5px;">${f[0]}</div><div style="font-size:13px;color:#0b2b1a;font-weight:700;">${f[1]}</div></div>`).join('');
+            // Steps
+            document.getElementById('craftModalStepsTitle').textContent = d.stepsTitle;
+            const stepsEl = document.getElementById('craftModalSteps');
+            const nums = ['١','٢','٣','٤','٥','٦'];
+            stepsEl.innerHTML = d.steps.map((s,i) => `<div style="display:flex;align-items:flex-start;gap:12px;background:#fff;border-radius:10px;padding:11px 15px;box-shadow:0 2px 6px rgba(0,0,0,0.04)"><div style="width:28px;height:28px;border-radius:50%;background:#0b2b1a;color:#f4ede2;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">${nums[i]||i+1}</div><div style="font-size:13px;color:#4a3d32;line-height:1.6;padding-top:4px;">${s}</div></div>`).join('');
+            // Tags
+            const tagsEl = document.getElementById('craftModalTags');
+            tagsEl.innerHTML = d.tags.map(t => `<span style="background:#f4ede2;color:#0b2b1a;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;border:1px solid #d1c7bd;">${t}</span>`).join('');
+            // Quote
+            document.getElementById('craftModalQuote').innerHTML = `<span style="font-size:20px;color:#c9a84c;">"</span> ${d.quote}`;
+            modal.style.display = 'block';
+        }
+
         window.onclick = function(event) {
             if (event.target == modal) modal.style.display = "none";
             if (event.target == document.getElementById("storyModal")) document.getElementById("storyModal").style.display = "none";
+            if (event.target == document.getElementById("craftModal")) document.getElementById("craftModal").style.display = "none";
         }
 
         // السلايدر
