@@ -120,21 +120,43 @@
 
     <!-- مودال عن شذرات -->
     <div id="aboutModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeBtn">&times;</span>
-            <h2 style="color:#0b2b1a;font-size:1.8rem;margin-bottom:15px;border-bottom:2px solid #d4a373;display:inline-block;padding-bottom:5px;">👥 مَن نحن؟</h2>
-            <p style="font-size:1.05rem;color:#333;margin-bottom:10px;">نحن طلاب الفرقة الرابعة بقسم العلاقات العامة والإعلان، كلية الإعلام – جامعة بنى سويف.</p>
-            <p style="font-size:1.05rem;color:#555;margin-bottom:25px;">لم يكن مشروع تخرجنا مجرد مهمة أكاديمية تنتهي بانتهاء العام الدراسي، بل اخترنا أن يكون رسالة نابضة بالحياة، تُعيد إحياء الجذور وتُسلط الضوء على الكنوز الحية التي صاغتها أيدي المبدعين المصريين عبر العصور.</p>
-            <h2 style="color:#0b2b1a;font-size:1.8rem;margin-bottom:15px;border-bottom:2px solid #d4a373;display:inline-block;padding-bottom:5px;">✨ عن "شذرات"</h2>
-            <blockquote style="font-style:italic;background-color:#f5f2eb;padding:15px;border-right:5px solid #0b2b1a;margin:15px 0;border-radius:4px;font-size:1.1rem;color:#0b2b1a;">
-                <strong>"الشذرات هي قِطَع الذهب الصغيرة والصافية.. وهكذا هي تفاصيل هويتنا المصرية; مبعثرة في أركان المحروسة، وكل قطعة منها تحكي قصة وطن."</strong>
-            </blockquote>
-            <p style="font-size:1.05rem;color:#333;margin-bottom:15px;">
-                <strong>"شذرات"</strong> هي حملة إعلامية متكاملة ولدت من شغفنا بتوثيق وحفظ الهوية الثقافية والحرف التراثية المصرية التي تواجه خطر الاندثار.
-            </p>
-            <p style="text-align:center;font-weight:bold;color:#0b2b1a;font-size:1.15rem;margin-top:30px;background-color:#e6edd9;padding:12px;border-radius:6px;">
-                ✨ شذرات.. بنجمع خيوط الماضي، عشان ننور بيها طريق المستقبل.
-            </p>
+        <div class="modal-content" style="max-width:750px; padding:0; overflow:hidden;">
+            <span class="close-btn" id="closeBtn" style="z-index:10;">&times;</span>
+
+            <!-- هيرو المودال -->
+            <div style="background:linear-gradient(rgba(11,43,26,0.75), rgba(11,43,26,0.9)), url('images/hero-bg.jpg') center/cover no-repeat; padding:30px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px;">
+                <img src="images/logo2.png" alt="شذرات" style="height:90px; width:auto; object-fit:contain;">
+                <h2 style="color:#f4ede2; font-family:'Reem Kufi',sans-serif; font-size:2rem; margin:0;">شَذَرات</h2>
+                <p style="color:#d1c7bd; font-size:13px; letter-spacing:3px; margin:0;">SHAZHARAT</p>
+            </div>
+
+            <!-- المحتوى -->
+            <div style="padding:30px; text-align:right;">
+                <h3 style="color:#0b2b1a; font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px;">👥 مَن نحن؟</h3>
+                <p style="font-size:1rem; color:#333; margin-bottom:8px; line-height:1.8;">نحن طلاب الفرقة الرابعة بقسم العلاقات العامة والإعلان، كلية الإعلام – جامعة بنى سويف.</p>
+                <p style="font-size:1rem; color:#555; margin-bottom:25px; line-height:1.8;">لم يكن مشروع تخرجنا مجرد مهمة أكاديمية تنتهي بانتهاء العام الدراسي، بل اخترنا أن يكون رسالة نابضة بالحياة، تُعيد إحياء الجذور وتُسلط الضوء على الكنوز الحية التي صاغتها أيدي المبدعين المصريين عبر العصور.</p>
+
+                <h3 style="color:#0b2b1a; font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px;">✨ عن "شذرات"</h3>
+                <blockquote style="font-style:italic; background-color:#f5f2eb; padding:15px; border-right:5px solid #0b2b1a; margin:0 0 15px; border-radius:4px; font-size:1rem; color:#0b2b1a; line-height:1.8;">
+                    <strong>"الشذرات هي قِطَع الذهب الصغيرة والصافية.. وهكذا هي تفاصيل هويتنا المصرية؛ مبعثرة في أركان المحروسة، وكل قطعة منها تحكي قصة وطن."</strong>
+                </blockquote>
+                <p style="font-size:1rem; color:#333; margin-bottom:20px; line-height:1.8;">
+                    <strong>"شذرات"</strong> هي حملة إعلامية متكاملة ولدت من شغفنا بتوثيق وحفظ الهوية الثقافية والحرف التراثية المصرية التي تواجه خطر الاندثار.
+                </p>
+
+                <!-- QR Code -->
+                <div style="background:#0b2b1a; border-radius:12px; padding:20px; display:flex; align-items:center; gap:20px;">
+                    <img src="images/follow-us.jpg" alt="QR تابعنا" style="width:100px; height:100px; border-radius:8px; flex-shrink:0;">
+                    <div>
+                        <p style="color:#c9a84c; font-size:13px; font-weight:700; margin-bottom:6px;">📱 تابعنا على منصات التواصل</p>
+                        <p style="color:#d1c7bd; font-size:12px; line-height:1.7; margin:0;">امسح الكود للوصول لصفحاتنا على فيسبوك وإنستغرام وتيك توك</p>
+                    </div>
+                </div>
+
+                <p style="text-align:center; font-weight:700; color:#0b2b1a; font-size:1rem; margin-top:20px; background-color:#e6edd9; padding:12px; border-radius:6px;">
+                    ✨ شذرات.. بنجمع خيوط الماضي، عشان ننور بيها طريق المستقبل.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -238,33 +260,32 @@
                 <a href="#">اقرأ المزيد ↩</a>
             </div>
             <div class="story-cards-row">
-                <a href="#" class="story-mini-card">
-                    <img src="images/cairo.jpg" alt="مشروع بكشف السر">
+                <div onclick="openStory('papyrus')" class="story-mini-card" style="cursor:pointer;">
+                    <img src="images/papyrus.jpg" alt="سر ورق البردي">
                     <div class="story-mini-info">
-                        <h4>مشروع بكشف السر</h4>
+                        <h4>سر ورق البردي</h4>
                         <p>أسرار الثلاثات القديمة</p>
                         <span>2 مايو 2024</span>
                     </div>
-                </a>
-                <a href="#" class="story-mini-card">
+                </div>
+                <div onclick="openStory('shamous')" class="story-mini-card" style="cursor:pointer;">
                     <img src="images/luxor.jpg" alt="عيد شموش">
                     <div class="story-mini-info">
                         <h4>عيد شموش</h4>
                         <p>عندما كان المصريون يحتفلون</p>
                         <span>10 مايو 2024</span>
                     </div>
-                </a>
-                <a href="#" class="story-mini-card">
-                    <img src="images/aswan.jpg" alt="خمن الوجه القديمة">
+                </div>
+                <div onclick="openStory('faces')" class="story-mini-card" style="cursor:pointer;">
+                    <img src="images/aswan.jpg" alt="خمّن الوجه القديمة">
                     <div class="story-mini-info">
-                        <h4>خمن الوجه القديمة</h4>
-                        <p>بوابات التاريخ في أكثر جهات التاريخ</p>
+                        <h4>خمّن الوجه القديمة</h4>
+                        <p>بوابات التاريخ في أكثر جهاته</p>
                         <span>25 مايو 2024</span>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
-
         <!-- القصة المميزة -->
         <div class="featured-story">
             <h3>الفراعنة.. أول من احتفل بعيد الربيع</h3>
@@ -272,6 +293,21 @@
             <button onclick="document.getElementById('storyModal').style.display='block'" class="btn-story">اقرأ القصة</button>
         </div>
     </section>
+
+    <!-- مودال القصص الـ 3 -->
+    <div id="storiesModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); overflow-y:auto;">
+        <div style="background:#f4ede2; margin:3% auto; border-radius:16px; width:88%; max-width:850px; position:relative; overflow:hidden; box-shadow:0 15px 50px rgba(0,0,0,0.4); animation:fadeIn 0.4s ease-out;">
+            <!-- هيرو القصة -->
+            <div id="storiesModalHero" style="height:220px; background:linear-gradient(rgba(11,43,26,0.55), rgba(11,43,26,0.85)), url('images/hero-bg.jpg') center/cover no-repeat; display:flex; flex-direction:column; justify-content:flex-end; padding:25px 30px;">
+                <span style="display:inline-block; background:#b94a24; color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:20px; margin-bottom:12px; width:fit-content; letter-spacing:1px;">📜 قصص من الماضي</span>
+                <h2 id="storiesModalTitle" style="font-family:'Cairo',sans-serif; font-size:1.6rem; color:#f4ede2; margin:0; font-weight:700; line-height:1.4;"></h2>
+            </div>
+            <!-- زر الإغلاق -->
+            <button onclick="document.getElementById('storiesModal').style.display='none'" style="position:absolute; top:15px; left:15px; background:rgba(0,0,0,0.5); border:none; color:#fff; width:36px; height:36px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1;">×</button>
+            <!-- المحتوى -->
+            <div id="storiesModalBody" style="padding:30px; text-align:right; font-size:1rem; line-height:2; color:#444;"></div>
+        </div>
+    </div>
 
     <!-- مودال القصة -->
     <div id="storyModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); overflow-y:auto;">
@@ -410,7 +446,44 @@
         btnHeader.onclick = function() { modal.style.display = "block"; }
         btnFooter.onclick = function() { modal.style.display = "block"; }
         closeBtn.onclick = function() { modal.style.display = "none"; }
-        // بيانات الحرف
+        const storiesData = {
+            papyrus: {
+                title: 'سر ورق البردي — حين غيّرت مصر وجه البشرية',
+                img: 'images/papyrus.jpg',
+                body: `<p style="margin-bottom:15px;">منذ فجر التاريخ، والمصري القديم يبحث عن وسيلة يخلّد بها حكايته، لم يكن يكتفي بالبقاء العابر، بل أراد للأثر أن يدوم. من هنا، ومن قلب ضفاف النيل، تولدت صناعة "ورق البردي"؛ ذلك السر الذي غيّر وجه البشرية وحوّل مصر إلى مركز المعرفة الأول في العالم القديم.</p>
+                <p style="margin-bottom:15px;">كلمة "البردي" ليست مجرد نبات ينمو في المستنقعات، بل هي فلسفة حياة ومقاومة للزمن. تبدأ الحكاية بساق مثلثة الشكل — وهي <strong>"الثلاثات القديمة"</strong> التي ترمز للخير والخصوبة — يتم تقشيرها بدقة متناهية، ثم تقطيع لبّها الأبيض إلى شرائح رقيقة جداً.</p>
+                <div style="background:#fff; border-radius:10px; padding:18px; margin-bottom:15px; border-right:4px solid #0b2b1a;">هذه الشرائح لا تُجمع بغراء أو بمواد صناعية، بل تُطرق بالمطارق الخشبية وتُغمر في مياه النيل العذبة لتفرز سكرها الطبيعي، والذي يعمل كمادة لاصقة ربانية تجمع الشرائح في نسيج واحد متقاطع (أفقي وعمودي)، يُمثل التوازن والاتحاد.</div>
+                <p style="margin-bottom:15px;">واليوم، عندما تمر بقرى مصرية حافظت على هذا السر أباً عن جد، تشعر وكأن الزمن قد توقف. الأيدي التي تتشرب اللون البني من عصارة النبات، والوجوه المحفورة بملامح الأجداد، ما زالت تمارس ذات الطقوس التي كان يمارسها الفراعنة قبل آلاف السنين.</p>
+                <div style="background:#e6edd9; padding:15px 20px; border-radius:8px; border-right:4px solid #0b2b1a; font-weight:700; color:#0b2b1a;">✨ إنها ليست مجرد حرفة يدوية لكسب العيش، بل هي شفرة وراثية حية، يتناقلها الأحفاد ليقولوا للعالم: "من هنا بدأت الكتابة، ومن هنا سيبقى السر ممتداً ما دام النيل يجري".</div>`
+            },
+            shamous: {
+                title: 'عيد شموش — حين كانت مصر تحتفل بالحياة',
+                img: 'images/luxor.jpg',
+                body: `<p style="margin-bottom:15px;">في مصر، الاحتفال ليس مجرد مناسبة عابرة، بل هو طقس مقدّس يرتبط بحركة الشمس ودورة الأرض. <strong>"شموش"</strong> أو تجليات أعياد الربيع والشمس في الوجدان المصري القديم، كانت تمثل لحظة ميلاد جديدة للطبيعة، حيث تتفتح الأزهار، ويفيض النيل بالخير.</p>
+                <p style="margin-bottom:15px;">وكانت الحرف اليدوية هي البطل الأول في هذه الاحتفالات. فمع كل عيد جديد، كان المصريون يجددون أواني بيوتهم؛ وهنا تولد قصة <strong>"الفخار والطين"</strong>.</p>
+                <div style="background:#fff; border-radius:10px; padding:18px; margin-bottom:15px; border-right:4px solid #0b2b1a;">الفخار في الثقافة المصرية ليس مجرد وعاء للماء أو الطعام، بل هو تجسيد لقصة الخلق الأولى: طمي النيل المخلوط بالماء، والذي تشكله أصابع الفنان على "الدولاب" الدوار ليعطيه هيئته، ثم يمر بنار الفرن (الفاخورة) ليتحول من طين رخو إلى مادة صلبة تعيش لقرون.</div>
+                <p style="margin-bottom:15px;">في أعياد مثل "شموش"، كانت القلل الفخارية والماجور والأواني المزينة بالنقوش النباتية والهندسية تُملأ بالخيرات وتُهدي للأحبة.</p>
+                <div style="background:#e6edd9; padding:15px 20px; border-radius:8px; border-right:4px solid #0b2b1a; font-weight:700; color:#0b2b1a;">✨ حتى اليوم، عندما تزور أسوان أو قنا وتسمع صوت دولاب الفخار ورائحة الطمي المحروق، تدرك أن بهجة الاحتفال المصري القديم لم تختفِ؛ إنها فقط تجسدت في أوانٍ تصنعها أيادٍ سمراء تشبه طين النيل.</div>`
+            },
+            faces: {
+                title: 'خمّن الوجه القديمة — بوابات التاريخ الحقيقية',
+                img: 'images/aswan.jpg',
+                body: `<p style="margin-bottom:15px;">إذا أغمضت عينيك وحاولت أن "تخمّن" الوجه الحقيقي لمصر، فلن تجده في الكتب الصامتة، بل ستجده في وجوه البشر وحركة أيديهم عبر بوابات التاريخ الممتدة من الشمال إلى الجنوب.</p>
+                <p style="margin-bottom:15px;">من شواطئ الإسكندرية وبورسعيد حيث تُغزل شباك الصيادين وتُصنع المراكب الخشبية اليدوية بحسابات هندسية توارثوها عن أجدادهم بحارة البحر المتوسط، وصولاً إلى أقصى الصعيد والنوبة حيث يُحاك التاريخ خيطاً فوق خيط.</p>
+                <div style="background:#fff; border-radius:10px; padding:18px; margin-bottom:15px; border-right:4px solid #0b2b1a;">في جنوب مصر، وتحديداً على نغمات النول اليدوي، تتجلى روعة النسيج. <strong>"النول"</strong> ليس مجرد آلة خشبية، بل هو بوابة زمنية. في النوبة، تمتزج هذه الحرفة بالألوان الزاهية المستوحاة من البيئة — الأزرق من النيل، الأصفر من الرمل، والأخضر من الزرع — لتتحول المنسوجات إلى لوحات فنية تنطق بالهوية.</div>
+                <p style="margin-bottom:15px;">هذه "الوجوه القديمة" التي تقابلها في أزقة المدن التاريخية، بين ورش السفن في المدن الساحلية ومغازل النسيج في الصعيد، هم حراس بوابات التاريخ الحقيقيون.</p>
+                <div style="background:#e6edd9; padding:15px 20px; border-radius:8px; border-right:4px solid #0b2b1a; font-weight:700; color:#0b2b1a;">✨ إنهم يعيدون إنتاج الحضارة يومياً، وبدونهم تفقد المدن روحها. هذا القسم هو رحلة لاكتشاف تلك الوجوه، وقراءة الحكاية المكتوبة في تفاصيل أيديهم.</div>`
+            }
+        };
+
+        function openStory(id) {
+            const s = storiesData[id];
+            if (!s) return;
+            document.getElementById('storiesModalTitle').textContent = s.title;
+            document.getElementById('storiesModalBody').innerHTML = s.body;
+            document.getElementById('storiesModalHero').style.background = `linear-gradient(rgba(11,43,26,0.55), rgba(11,43,26,0.85)), url('${s.img}') center/cover no-repeat`;
+            document.getElementById('storiesModal').style.display = 'block';
+        }
         const craftsData = {
             pottery: {
                 title: 'الفخار', icon: '🏺', origin: '📍 قرية تونس — الفيوم',
@@ -577,7 +650,7 @@
 
         window.onclick = function(event) {
             if (event.target == modal) modal.style.display = "none";
-            if (event.target == document.getElementById("storyModal")) document.getElementById("storyModal").style.display = "none";
+            if (event.target == document.getElementById("storiesModal")) document.getElementById("storiesModal").style.display = "none";
             if (event.target == document.getElementById("craftModal")) document.getElementById("craftModal").style.display = "none";
         }
 
