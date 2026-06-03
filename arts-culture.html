@@ -4,449 +4,427 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شذرات - فنون وثقافات</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
     <style>
-        /* تنسيقات مخصصة لصفحة الفنون والثقافات */
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #fcfbfa;
-            color: #333;
-            margin: 0;
-            padding: 0;
+        html { scroll-behavior: smooth; }
+
+        /* Hero */
+        .arts-hero {
+            position: relative;
+            height: 70vh;
+            background: linear-gradient(rgba(11,43,26,0.55), rgba(11,43,26,0.8)),
+                        url('images/khayamiya.jpg') no-repeat center center/cover;
+            display: flex; flex-direction: column;
+            justify-content: flex-end; padding: 60px 6%;
         }
 
-        .culture-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 50px 20px;
+        .breadcrumb {
+            position: absolute; top: 25px; right: 6%;
+            display: flex; gap: 8px; align-items: center;
+            font-size: 13px; color: rgba(255,255,255,0.75);
+        }
+        .breadcrumb a { color: rgba(255,255,255,0.75); text-decoration: none; }
+        .breadcrumb a:hover { color: #f4ede2; }
+        .breadcrumb span { color: rgba(255,255,255,0.4); }
+
+        .arts-hero-content { max-width: 650px; }
+        .city-tag {
+            display: inline-block; background-color: #b94a24; color: #fff;
+            font-size: 12px; font-weight: 700; padding: 5px 14px;
+            border-radius: 20px; margin-bottom: 18px; letter-spacing: 1px;
+        }
+        .arts-hero h1 {
+            font-family: 'Reem Kufi', sans-serif; font-size: 48px;
+            color: #f4ede2; line-height: 1.3; margin-bottom: 14px;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.5);
+        }
+        .arts-hero p {
+            font-size: 16px; color: rgba(255,255,255,0.85);
+            line-height: 1.8; max-width: 550px;
         }
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 50px;
+        /* Nav Tabs */
+        .arts-nav {
+            background: #0b2b1a;
+            display: flex; flex-wrap: wrap;
+            gap: 0; overflow-x: auto;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .arts-nav a {
+            color: #d1c7bd; text-decoration: none;
+            padding: 14px 20px; font-size: 13px; font-weight: 700;
+            white-space: nowrap; transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .arts-nav a:hover, .arts-nav a.active {
+            color: #c9a84c; border-bottom-color: #c9a84c;
+            background: rgba(255,255,255,0.05);
         }
 
-        .page-title {
-            color: #0b2b1a;
-            font-size: 2.6rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
+        /* Main body */
+        .arts-body { background: #f4ede2; padding: 60px 6%; }
 
-        .title-divider {
-            width: 120px;
-            height: 4px;
-            background-color: #d4a373;
-            margin: 0 auto 25px auto;
-            border-radius: 2px;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
-            line-height: 1.9;
-            color: #444;
-            background-color: #f5f2eb;
-            padding: 25px;
+        /* Intro */
+        .arts-intro {
+            background: #fff; border-radius: 14px; padding: 30px;
             border-right: 5px solid #0b2b1a;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 50px; font-size: 15px;
+            line-height: 2; color: #4a3d32;
         }
 
-        /* تصميم قسم الفنون كمجموعات متميزة */
-        .art-section {
-            background: #ffffff;
-            border: 1px solid #eae6df;
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-            transition: transform 0.3s ease;
+        /* Art cards grid */
+        .arts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 25px;
         }
 
-        .art-section:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+        .art-card {
+            background: #fff; border-radius: 14px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .art-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
-        .art-main-title {
-            color: #0b2b1a;
-            font-size: 1.8rem;
-            margin-top: 0;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
+        .art-card-header {
+            background: linear-gradient(135deg, #0b2b1a, #1a4a2e);
+            padding: 20px 25px; display: flex;
+            align-items: center; gap: 12px;
+        }
+        .art-card-icon {
+            font-size: 32px; width: 55px; height: 55px;
+            background: rgba(255,255,255,0.1); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .art-card-header h2 {
+            color: #f4ede2; font-size: 20px; margin: 0;
+            font-family: 'Reem Kufi', sans-serif;
+        }
+        .art-card-header span {
+            color: #c9a84c; font-size: 12px; display: block;
+            margin-top: 4px;
+        }
+
+        .art-card-body { padding: 25px; }
+        .art-card-body p {
+            font-size: 14px; line-height: 1.9;
+            color: #605244; margin-bottom: 20px;
+        }
+
+        .art-facts {
+            display: grid; grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-
-        .art-subtitle {
-            color: #d4a373;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-weight: 700;
+        .art-fact {
+            background: #f4ede2; border-radius: 8px;
+            padding: 10px 14px; border-right: 3px solid #b94a24;
+            font-size: 13px; color: #0b2b1a; font-weight: 700;
         }
 
-        .art-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 25px;
+        /* Special full-width card */
+        .art-card-full { grid-column: 1 / -1; }
+        .art-card-full .art-card-header {
+            background: linear-gradient(135deg, #1a3a2a, #2d6a4f);
         }
 
-        /* صندوق المعلومات الإضافية */
-        .info-box {
-            background-color: #faf9f6;
-            border: 1px dashed #d4a373;
-            border-radius: 8px;
-            padding: 20px 25px;
+        /* نوبي sub cards */
+        .nubi-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
+            margin-top: 15px;
+        }
+        .nubi-sub {
+            background: #f4ede2; border-radius: 10px; padding: 18px;
+            border-top: 3px solid #c9a84c;
+        }
+        .nubi-sub h3 {
+            color: #0b2b1a; font-size: 15px; margin: 0 0 10px;
+        }
+        .nubi-sub p {
+            font-size: 13px; color: #605244;
+            line-height: 1.8; margin: 0;
         }
 
-        .info-box h4 {
-            margin-top: 0;
-            color: #0b2b1a;
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #eae6df;
-            padding-bottom: 5px;
-        }
-
-        .info-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 12px;
-        }
-
-        .info-list li {
-            font-size: 1rem;
-            color: #444;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* تنسيق خاص بالقسم النوبي المدمج */
-        .nubi-sub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .nubi-card {
-            background: #fdfdfd;
-            border-left: 3px solid #d4a373;
-            padding: 20px;
-            border-radius: 6px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.01);
+        @media (max-width: 768px) {
+            .arts-hero { height: 60vh; padding: 40px 5%; }
+            .arts-hero h1 { font-size: 30px; }
+            .arts-grid { grid-template-columns: 1fr; }
+            .nubi-grid { grid-template-columns: 1fr; }
+            .art-facts { grid-template-columns: 1fr; }
+            .arts-body { padding: 40px 5%; }
         }
     </style>
 </head>
 <body>
 
+    <!-- الهيدر -->
     <header class="main-header">
-        <div class="logo">شذرات</div>
-        <nav class="nav-links">
+        <div class="logo brand-font">شَذَرات<span class="logo-en">SHAZHARAT</span></div>
+        <nav class="nav-links" id="navLinks">
             <a href="index.html">الرئيسية</a>
-            <a href="index.html#aboutModal">عن شذرات</a>
-            <a href="#">الحرف اليدوية</a>
+            <a href="crafts.html">الحرف اليدوية</a>
             <a href="index.html#places-section">المناطق الأثرية</a>
-            <a href="#">تواصل معنا</a>
+            <a href="#" class="active">فنون وثقافات</a>
         </nav>
-        <button class="menu-toggle">☰</button>
+        <button class="menu-toggle" id="menuToggle">☰</button>
     </header>
 
-    <main class="culture-container">
-        
-        <div class="page-header">
-            <h1 class="page-title">🎭 الفنون والثقافات — روح التراث المصري</h1>
-            <div class="title-divider"></div>
+    <!-- الهيرو -->
+    <section class="arts-hero">
+        <div class="breadcrumb">
+            <a href="index.html">الرئيسية</a><span>/</span>
+            <span style="color:#f4ede2;">فنون وثقافات</span>
+        </div>
+        <div class="arts-hero-content">
+            <span class="city-tag">🎭 فنون وثقافات</span>
+            <h1>الفنون والثقافات — روح التراث المصري</h1>
+            <p>تحكي تاريخ المجتمع وعاداته وتقاليده التي انتقلت عبر الأجيال، من الصعيد إلى النوبة</p>
+        </div>
+    </section>
+
+    <!-- تابز التنقل -->
+    <nav class="arts-nav">
+        <a href="#tahtib">🪵 التحطيب</a>
+        <a href="#marmaah">🐎 المرماح</a>
+        <a href="#rababa">🎻 الربابة</a>
+        <a href="#mizmaar">🎺 المزمار</a>
+        <a href="#folklore">🌍 الفلكلور</a>
+        <a href="#masrah">🎭 المسرح</a>
+        <a href="#opera">🎼 الأوبرا</a>
+        <a href="#zaar">🔮 الزار</a>
+        <a href="#tannoura">💃 التنورة</a>
+        <a href="#nubia">🌴 الفنون النوبية</a>
+    </nav>
+
+    <!-- المحتوى -->
+    <div class="arts-body">
+
+        <!-- مقدمة -->
+        <div class="arts-intro">
+            تُعتبر الفنون والثقافات الشعبية جزءًا أساسيًا من الهوية المصرية، فهي لا تعبر فقط عن الموسيقى أو الرقصات أو العروض الفنية، بل تحكي تاريخ المجتمع وعاداته وتقاليده التي انتقلت عبر الأجيال. ومن خلال رحلة <strong>شذرات</strong>، تم تسليط الضوء على مجموعة من الفنون الشعبية والثقافية التي ما زالت حاضرة حتى اليوم باعتبارها جزءًا من التراث المصري الأصيل.
         </div>
 
-        <p class="intro-text">
-            تُعتبر الفنون والثقافات الشعبية جزءًا أساسيًا من الهوية المصرية، فهي لا تعبر فقط عن الموسيقى أو الرقصات أو العروض الفنية، بل تحكي تاريخ المجتمع وعاداته وتقاليده التي انتقلت عبر الأجيال. وتتميز كل محافظة في مصر بطابع فني وثقافي خاص يظهر في الموسيقى الشعبية والملابس والاحتفالات والفنون التراثية التي تعكس روح المكان وأهله.
-            <br><br>
-            ومن خلال رحلة <strong>شذرات</strong>، تم تسليط الضوء على مجموعة من الفنون الشعبية والثقافية التي ما زالت حاضرة حتى اليوم باعتبارها جزءًا من التراث المصري الأصيل.
-        </p>
+        <div class="arts-grid">
 
-        <section class="art-section">
-            <h2 class="art-main-title">🪵 التحطيب</h2>
-            <div class="art-subtitle">🥁 فن التحطيب</div>
-            <p class="art-description">
-                يُعد التحطيب واحدًا من أقدم الفنون الشعبية والتراثية في مصر، خاصة في محافظات الصعيد مثل الأقصر وقنا وسوهاج. ويعتمد هذا الفن على استخدام العصا الخشبية في حركات استعراضية منظمة تعكس القوة والمهارة وسرعة الحركة.
-                <br><br>
-                ويرجع أصل التحطيب إلى مصر القديمة، حيث كان يُستخدم كنوع من التدريب العسكري والدفاع عن النفس، ثم تحول مع مرور الزمن إلى فن شعبي يُقام في الأفراح والموالد والمناسبات التراثية. ويصاحب عروض التحطيب عادةً المزمار البلدي والطبل الشعبي، مما يمنح العرض أجواء حماسية مميزة.
-                <br><br>
-                ويتميز لاعبو التحطيب بالملابس الصعيدية التقليدية والحركات المتناسقة التي تعكس الاحترام والروح الرياضية بين المشاركين، لذلك أصبح التحطيب جزءًا مهمًا من الثقافة الشعبية في الصعيد المصري.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>🪵 يعتمد على العصا الخشبية الطويلة</li>
-                    <li>🎶 يُصاحبه المزمار والطبل البلدي</li>
-                    <li>🏺 يرجع تاريخه إلى مصر القديمة</li>
-                    <li>🌴 ينتشر في محافظات الصعيد</li>
-                    <li>✨ يُقدم في الموالد والأفراح الشعبية</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section">
-            <h2 class="art-main-title">🐎 المرماح</h2>
-            <div class="art-subtitle">🐴 فن المرماح</div>
-            <p class="art-description">
-                يُعتبر المرماح من الفنون الشعبية المرتبطة بالفروسية والخيول في صعيد مصر، حيث يجتمع الفرسان لاستعراض مهاراتهم في ركوب الخيل والجري السريع وسط أجواء احتفالية مليئة بالحماس والموسيقى الشعبية.
-                <br><br>
-                ويرتبط المرماح بالمناسبات الكبيرة مثل الموالد والأفراح والاحتفالات الشعبية، ويُعد رمزًا للشجاعة والقوة والمهارة لدى أبناء الصعيد. كما يتم تزيين الخيول بالأقمشة الملونة والزينة التراثية التي تضيف جمالًا خاصًا للعروض.
-                <br><br>
-                ويصاحب المرماح عادةً صوت المزمار البلدي والطبل الشعبي، مما يجعل الأجواء مليئة بالحيوية والبهجة ويعكس روح التراث الصعيدي الأصيل.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>🐎 يعتمد على مهارات الفروسية</li>
-                    <li>🎶 يصاحبه المزمار الشعبي</li>
-                    <li>🌴 منتشر في محافظات الصعيد</li>
-                    <li>✨ يُقام في الموالد والاحتفالات</li>
-                    <li>👑 يعكس التراث البدوي والصعيدي</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section">
-            <h2 class="art-main-title">🎻 الربابة</h2>
-            <div class="art-subtitle">🎵 آلة الربابة</div>
-            <p class="art-description">
-                تُعتبر الربابة واحدة من أقدم الآلات الموسيقية الشعبية في مصر والعالم العربي، واشتهرت بشكل كبير في الصعيد والريف المصري. وتتميز الربابة بصوتها الحزين الهادئ الذي ارتبط بالحكايات الشعبية والسير التراثية القديمة.
-                <br><br>
-                وكان الرواة قديمًا يستخدمون الربابة أثناء رواية القصص الشعبية مثل السيرة الهلالية وقصص الأبطال الشعبيين، حيث يجلس الراوي بين الناس ليحكي الحكايات على أنغام الربابة التي تضيف للمشهد طابعًا دراميًا مميزًا.
-                <br><br>
-                وتُصنع الربابة غالبًا من الخشب والجلد الطبيعي، وتعتمد على وتر واحد أو أكثر يتم العزف عليه باستخدام القوس، وما زالت حتى اليوم تُستخدم في بعض المناسبات التراثية والعروض الشعبية.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>🎻 من أقدم الآلات الشعبية</li>
-                    <li>📖 ارتبطت بالسيرة الهلالية</li>
-                    <li>🌾 منتشرة في الريف والصعيد</li>
-                    <li>✨ تتميز بصوتها الحزين الهادئ</li>
-                    <li>🪵 تُصنع من الخشب والجلد الطبيعي</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section">
-            <h2 class="art-main-title">🎺 المزمار البلدي</h2>
-            <div class="art-subtitle">🎶 المزمار الشعبي</div>
-            <p class="art-description">
-                يُعد المزمار البلدي من أشهر الآلات الموسيقية الشعبية في مصر، ويُستخدم بشكل كبير في الأفراح والمناسبات الشعبية خاصة في الصعيد والريف. ويتميز بصوته القوي والحماسي الذي يضيف أجواء من البهجة والطاقة داخل الاحتفالات.
-                <br><br>
-                ويرتبط المزمار بالعديد من الفنون الشعبية مثل التحطيب والمرماح والرقصات التراثية، حيث يعمل مع الطبل البلدي على خلق إيقاع مميز يعكس روح الفلكلور الشعبي المصري.
-                <br><br>
-                ويحتاج العزف على المزمار إلى مهارة كبيرة بسبب قوة النفس والتحكم في النغمات، لذلك يُعتبر من الفنون الموسيقية التراثية المهمة في الثقافة المصرية.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>🎺 من أشهر الآلات الشعبية</li>
-                    <li>🥁 يُستخدم مع الطبل البلدي</li>
-                    <li>🌴 منتشر في الصعيد والريف</li>
-                    <li>✨ يرتبط بالأفراح والفنون الشعبية</li>
-                    <li>🎶 يتميز بصوته القوي والحماسي</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section">
-            <h2 class="art-main-title">🌍 الفلكلور الشعبي</h2>
-            <div class="art-subtitle">🎭 الفلكلور المصري</div>
-            <p class="art-description">
-                يُعبر الفلكلور الشعبي عن روح المجتمع المصري وعاداته وتقاليده التي انتقلت عبر الأجيال، ويشمل الأغاني والرقصات والملابس والحكايات الشعبية والمناسبات التراثية التي تعكس هوية كل منطقة في مصر.
-                <br><br>
-                ويختلف الفلكلور من محافظة لأخرى، فلكل مدينة طابعها الخاص في الموسيقى والملابس والاحتفالات الشعبية. ويُعتبر الفلكلور وسيلة مهمة للحفاظ على التراث الثقافي ونقل العادات القديمة للأجيال الجديدة.
-                <br><br>
-                كما يظهر الفلكلور المصري في الموالد والأسواق الشعبية والاحتفالات والمهرجانات التراثية التي تجمع بين الفن والموسيقى والعادات الشعبية.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>🎶 يشمل الموسيقى والرقصات الشعبية</li>
-                    <li>👘 يعكس العادات والتقاليد</li>
-                    <li>📖 ينتقل بين الأجيال</li>
-                    <li>✨ يمثل الهوية الثقافية المصرية</li>
-                    <li>🌍 يختلف من محافظة لأخرى</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section">
-            <h2 class="art-main-title">🎭 المسرح</h2>
-            <div class="art-subtitle">🎬 المسرح المصري</div>
-            <p class="art-description">
-                يُعتبر المسرح من أهم الفنون الثقافية في مصر، حيث لعب دورًا كبيرًا في التعبير عن قضايا المجتمع ونقل الأفكار والثقافات المختلفة من خلال العروض الفنية والتمثيل.
-                <br><br>
-                وشهد المسرح المصري تطورًا كبيرًا عبر السنوات، وظهر العديد من الفنانين والكتّاب الذين ساهموا في جعله جزءًا مهمًا من الثقافة والفنون المصرية. كما تنوعت العروض المسرحية بين الكوميديا والدراما والعروض التراثية والاستعراضية.
-                <br><br>
-                ويُعتبر المسرح وسيلة تجمع بين الفن والأدب والموسيقى، لذلك ظل واحدًا من أبرز أشكال التعبير الثقافي في مصر حتى اليوم.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>🎭 من أقدم الفنون الثقافية</li>
-                    <li>🎬 يعتمد على العروض الحية</li>
-                    <li>📖 يناقش قضايا المجتمع</li>
-                    <li>✨ يجمع بين التمثيل والموسيقى</li>
-                    <li>🏛 جزء مهم من الثقافة المصرية</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section">
-            <h2 class="art-main-title">🎼 الأوبرا</h2>
-            <div class="art-subtitle">🎻 دار الأوبرا المصرية</div>
-            <p class="art-description">
-                تُعتبر دار الأوبرا المصرية من أهم الصروح الثقافية والفنية في مصر، حيث تُقدم عروضًا موسيقية ومسرحية متنوعة تجمع بين التراث والفنون الحديثة.
-                <br><br>
-                وتستضيف الأوبرا حفلات الموسيقى العربية والكلاسيكية والباليه والعروض المسرحية والفنون الاستعراضية، مما يجعلها مركزًا مهمًا للحياة الثقافية والفنية في مصر.
-                <br><br>
-                كما تُساهم الأوبرا في الحفاظ على الفنون الراقية وتشجيع المواهب الفنية وتقديم العروض التي تعكس التنوع الثقافي المصري والعالمي.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>🎼 مركز للفنون والثقافة</li>
-                    <li>🎻 تُقدم حفلات موسيقية ومسرحية</li>
-                    <li>🏛 من أهم المعالم الثقافية</li>
-                    <li>✨ تجمع بين التراث والفنون الحديثة</li>
-                    <li>🎭 تستضيف عروض الباليه والأوركسترا</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section">
-            <h2 class="art-main-title">🔮 الزار</h2>
-            <div class="art-subtitle">🥁 طقوس الزار</div>
-            <p class="art-description">
-                يُعتبر الزار من الطقوس الشعبية القديمة المرتبطة بالموسيقى والإيقاعات التراثية في بعض المناطق المصرية. ويعتمد الزار على الطبول والإنشاد والإيقاعات القوية داخل أجواء شعبية خاصة.
-                <br><br>
-                ومع مرور الوقت أصبح الزار يُقدم أحيانًا كجزء من الفلكلور الشعبي والعروض التراثية التي تعكس جانبًا من الثقافة الشعبية القديمة في مصر. كما يرتبط الزار بالملابس التقليدية والرقصات الشعبية التي تضيف طابعًا مميزًا للعروض.
-                <br><br>
-                ويُعتبر الزار واحدًا من الفنون التي تعكس التنوع الثقافي والتراثي داخل المجتمع المصري.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>🥁 يعتمد على الطبول والإيقاعات</li>
-                    <li>🎶 يرتبط بالموسيقى الشعبية</li>
-                    <li>🌍 جزء من الموروث الشعبي القديم</li>
-                    <li>✨ يُقدم أحيانًا كعرض تراثي</li>
-                    <li>👘 يتميز بالملابس والرقصات الشعبية</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section">
-            <h2 class="art-main-title">💃 التنورة</h2>
-            <div class="art-subtitle">🎨 فن التنورة</div>
-            <p class="art-description">
-                تُعتبر رقصة التنورة واحدة من أشهر الفنون الاستعراضية والتراثية في مصر، وترتبط بالفنون الصوفية التي تعتمد على الموسيقى والإيقاع والحركة الدائرية المستمرة. ويؤدي الراقص العرض مرتديًا تنورة واسعة متعددة الألوان تدور بشكل متناسق مع الموسيقى، مما يخلق مشهدًا بصريًا مميزًا يعكس جمال الفن الشعبي المصري.
-                <br><br>
-                وترجع أصول التنورة إلى الاحتفالات الصوفية التي كانت تهدف إلى التعبير الروحاني من خلال الحركة والموسيقى، ثم تحولت مع الوقت إلى واحدة من أشهر العروض الفنية التي تُقدم في الأماكن التراثية والمهرجانات السياحية والثقافية.
-                <br><br>
-                وتتميز التنورة بالألوان الزاهية والزخارف المستوحاة من التراث الإسلامي والشعبي، كما يحتاج مؤدي الرقصة إلى مهارة كبيرة للحفاظ على توازنه أثناء الدوران لفترات طويلة.
-            </p>
-            <div class="info-box">
-                <h4>📌 معلومات إضافية:</h4>
-                <ul class="info-list">
-                    <li>💃 تعتمد على الدوران المستمر مع الموسيقى</li>
-                    <li>🎨 تتميز بالتنورات الملونة والزخارف التراثية</li>
-                    <li>🕌 ارتبطت بالفنون الصوفية</li>
-                    <li>🎶 تُقدم في المهرجانات والأماكن التراثية</li>
-                    <li>✨ من أشهر العروض الفنية الشعبية في مصر</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="art-section" style="border-top: 4px solid #0b2b1a;">
-            <h2 class="art-main-title">🌴 الرقص والغناء النوبي</h2>
-            <div class="art-subtitle">🎶 الفنون النوبية</div>
-            <p class="art-description">
-                تُعتبر الفنون النوبية من أكثر الفنون الشعبية تميزًا في مصر، حيث تعكس روح النوبة وهويتها الثقافية من خلال الموسيقى والرقصات والأغاني التراثية التي انتقلت عبر الأجيال. وتتميز الفنون النوبية بالألوان المبهجة والإيقاعات السريعة والأجواء الاحتفالية التي تعبر عن الترابط والبهجة داخل المجتمع النوبي.
-                <br><br>
-                ويرتبط الغناء والرقص النوبي بالمناسبات الاجتماعية مثل الأفراح والاحتفالات والتجمعات العائلية، حيث يجتمع الأهالي لتقديم العروض التراثية التي تعكس تاريخ النوبة وعاداتها القديمة.
-            </p>
-
-            <div class="nubi-sub-grid">
-                <div class="nubi-card">
-                    <h3 style="color:#0b2b1a; margin-top:0; font-size:1.4rem;">💃 الرقص النوبي (🌈 فن الرقص النوبي)</h3>
-                    <p style="font-size:1.05rem; color:#555; line-height:1.7;">
-                        تميز الرقص النوبي بالحركات الجماعية المتناسقة التي تعتمد على الإيقاع السريع والانسجام بين الراقصين، حيث يُؤدى غالبًا في شكل مجموعات تعبر عن روح التعاون والفرحة داخل المجتمع النوبي.
-                        <br><br>
-                        كما تتميز الرقصات النوبية بالأزياء الملونة المستوحاة من الطبيعة النوبية، والتي تعتمد على الألوان الزاهية والزخارف التراثية التي تضيف جمالًا خاصًا للعروض. وتُستخدم أثناء الرقص الطبول والدفوف والآلات الموسيقية الشعبية التي تمنح الأجواء طابعًا احتفاليًا مميزًا.
-                    </p>
-                    <div class="info-box" style="background:#fff; margin-top:15px;">
-                        <ul class="info-list">
-                            <li>💃 يعتمد على الرقص الجماعي المتناسق</li>
-                            <li>🥁 يصاحبه الطبول والدفوف النوبية</li>
-                            <li>🌈 الأزياء ملونة والزخارف تراثية</li>
-                            <li>🎉 يُقدم في الأفراح والاحتفالات</li>
-                            <li>✨ يعكس روح البهجة والترابط</li>
-                        </ul>
-                    </div>
+            <!-- التحطيب -->
+            <div class="art-card" id="tahtib">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🪵</div>
+                    <div><h2>التحطيب</h2><span>📍 محافظات الصعيد — الأقصر وقنا وسوهاج</span></div>
                 </div>
-
-                <div class="nubi-card" style="margin-top:20px;">
-                    <h3 style="color:#0b2b1a; margin-top:0; font-size:1.4rem;">🎵 الغناء النوبي (🎤 الموسيقى والغناء النوبي)</h3>
-                    <p style="font-size:1.05rem; color:#555; line-height:1.7;">
-                        يُعتبر الغناء النوبي جزءًا مهمًا من التراث الثقافي في أسوان والنوبة، حيث تتميز الأغاني النوبية بالإيقاعات الهادئة أحيانًا والحماسية أحيانًا أخرى، وتعبر كلماتها عن الحياة والطبيعة والنيل والحب والانتماء للأرض.
-                        <br><br>
-                        ويعتمد الغناء النوبي على مجموعة من الآلات الموسيقية الشعبية مثل الدفوف والطبول والآلات الوترية، كما يتميز باستخدام اللغة النوبية التي تمنح الأغاني طابعًا ثقافيًا خاصًا يعكس هوية أهل النوبة.
-                        <br><br>
-                        وحتى اليوم ما زالت الموسيقى النوبية واحدة من أكثر الفنون الشعبية انتشارًا وتأثيرًا، حيث تُقدم في المهرجانات والاحتفالات السياحية والثقافية داخل مصر وخارجها.
-                    </p>
-                    <div class="info-box" style="background:#fff; margin-top:15px;">
-                        <ul class="info-list">
-                            <li>🎶 يعتمد على الإيقاعات التراثية</li>
-                            <li>🌊 تعبر الأغاني عن النيل والحياة</li>
-                            <li>🥁 الطبول والدفوف والآلات الشعبية</li>
-                            <li>🌴 يتميز باستخدام اللغة النوبية</li>
-                            <li>✨ من أشهر الفنون في أسوان</li>
-                        </ul>
+                <div class="art-card-body">
+                    <p>يُعد التحطيب واحدًا من أقدم الفنون الشعبية والتراثية في مصر، ويعتمد على استخدام العصا الخشبية في حركات استعراضية منظمة تعكس القوة والمهارة وسرعة الحركة. يرجع أصله إلى مصر القديمة كتدريب عسكري، ثم تحوّل إلى فن شعبي يُقام في الأفراح والموالد والمناسبات التراثية مصحوبًا بالمزمار البلدي والطبل الشعبي.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">🪵 العصا الخشبية الطويلة</div>
+                        <div class="art-fact">🎶 المزمار والطبل البلدي</div>
+                        <div class="art-fact">🏺 أصوله من مصر القديمة</div>
+                        <div class="art-fact">✨ الموالد والأفراح الشعبية</div>
                     </div>
                 </div>
             </div>
-        </section>
 
-    </main>
+            <!-- المرماح -->
+            <div class="art-card" id="marmaah">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🐎</div>
+                    <div><h2>المرماح</h2><span>📍 صعيد مصر</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>فن شعبي مرتبط بالفروسية والخيول في صعيد مصر، يجتمع فيه الفرسان لاستعراض مهاراتهم في ركوب الخيل وسط أجواء احتفالية. يُعد رمزًا للشجاعة والقوة لدى أبناء الصعيد، وتُزيَّن الخيول بالأقمشة الملونة والزينة التراثية. يصاحبه المزمار البلدي والطبل الشعبي مما يجعل الأجواء مليئة بالحيوية والبهجة.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">🐎 مهارات الفروسية</div>
+                        <div class="art-fact">🎶 المزمار الشعبي</div>
+                        <div class="art-fact">🌴 منتشر في الصعيد</div>
+                        <div class="art-fact">👑 يعكس التراث الصعيدي</div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- الربابة -->
+            <div class="art-card" id="rababa">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🎻</div>
+                    <div><h2>الربابة</h2><span>📍 الصعيد والريف المصري</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>من أقدم الآلات الموسيقية الشعبية في مصر، اشتهرت بصوتها الحزين الهادئ المرتبط بالحكايات الشعبية والسير التراثية. كان الرواة يستخدمونها أثناء رواية السيرة الهلالية وقصص الأبطال الشعبيين. تُصنع من الخشب والجلد الطبيعي، وتعتمد على وتر يُعزف عليه بالقوس.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">📖 السيرة الهلالية</div>
+                        <div class="art-fact">🌾 الريف والصعيد</div>
+                        <div class="art-fact">🎵 صوت حزين هادئ</div>
+                        <div class="art-fact">🪵 خشب وجلد طبيعي</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المزمار -->
+            <div class="art-card" id="mizmaar">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🎺</div>
+                    <div><h2>المزمار البلدي</h2><span>📍 الصعيد والريف</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>من أشهر الآلات الموسيقية الشعبية في مصر، يتميز بصوته القوي الحماسي الذي يضيف أجواء من البهجة داخل الاحتفالات. يرتبط بالتحطيب والمرماح والرقصات التراثية، ويعمل مع الطبل البلدي على خلق إيقاع مميز يعكس روح الفلكلور الشعبي المصري. يحتاج العزف عليه لمهارة كبيرة وقوة نفس.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">🥁 مع الطبل البلدي</div>
+                        <div class="art-fact">🌴 الصعيد والريف</div>
+                        <div class="art-fact">✨ أفراح وفنون شعبية</div>
+                        <div class="art-fact">🎶 صوت قوي وحماسي</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الفلكلور -->
+            <div class="art-card" id="folklore">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🌍</div>
+                    <div><h2>الفلكلور الشعبي</h2><span>📍 كل محافظات مصر</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>يُعبر عن روح المجتمع المصري وعاداته وتقاليده التي انتقلت عبر الأجيال، ويشمل الأغاني والرقصات والملابس والحكايات الشعبية. يختلف الفلكلور من محافظة لأخرى، فلكل مدينة طابعها الخاص. يظهر في الموالد والأسواق الشعبية والاحتفالات التراثية التي تجمع بين الفن والموسيقى.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">🎶 موسيقى ورقصات</div>
+                        <div class="art-fact">👘 عادات وتقاليد</div>
+                        <div class="art-fact">📖 ينتقل بين الأجيال</div>
+                        <div class="art-fact">🌍 مختلف لكل محافظة</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المسرح -->
+            <div class="art-card" id="masrah">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🎭</div>
+                    <div><h2>المسرح</h2><span>📍 القاهرة والمدن الكبرى</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>من أهم الفنون الثقافية في مصر، لعب دورًا كبيرًا في التعبير عن قضايا المجتمع. شهد تطورًا كبيرًا عبر السنوات وظهر فنانون وكتّاب ساهموا في جعله جزءًا مهمًا من الثقافة المصرية. تنوعت العروض بين الكوميديا والدراما والعروض التراثية. يجمع الفن والأدب والموسيقى في آنٍ واحد.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">🎬 عروض حية</div>
+                        <div class="art-fact">📖 قضايا المجتمع</div>
+                        <div class="art-fact">🎭 كوميديا ودراما</div>
+                        <div class="art-fact">🏛 ثقافة مصرية أصيلة</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الأوبرا -->
+            <div class="art-card" id="opera">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🎼</div>
+                    <div><h2>الأوبرا</h2><span>📍 القاهرة — دار الأوبرا</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>دار الأوبرا المصرية من أهم الصروح الثقافية والفنية، تُقدم عروضًا موسيقية ومسرحية تجمع بين التراث والفنون الحديثة. تستضيف حفلات الموسيقى العربية والكلاسيكية والباليه والعروض المسرحية والفنون الاستعراضية. تُساهم في الحفاظ على الفنون الراقية وتشجيع المواهب الفنية وتقديم عروض تعكس التنوع الثقافي.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">🎻 موسيقى وأوركسترا</div>
+                        <div class="art-fact">🏛 معلم ثقافي كبير</div>
+                        <div class="art-fact">🎭 باليه ومسرح</div>
+                        <div class="art-fact">✨ تراث وفنون حديثة</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الزار -->
+            <div class="art-card" id="zaar">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🔮</div>
+                    <div><h2>الزار</h2><span>📍 مناطق متفرقة في مصر</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>من الطقوس الشعبية القديمة المرتبطة بالموسيقى والإيقاعات التراثية. يعتمد على الطبول والإنشاد والإيقاعات القوية. أصبح يُقدم أحيانًا كجزء من الفلكلور الشعبي والعروض التراثية التي تعكس جانبًا من الثقافة الشعبية القديمة. يرتبط بالملابس التقليدية والرقصات الشعبية مما يضيف طابعًا مميزًا.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">🥁 طبول وإيقاعات</div>
+                        <div class="art-fact">🎶 موسيقى شعبية</div>
+                        <div class="art-fact">🌍 موروث شعبي قديم</div>
+                        <div class="art-fact">👘 ملابس ورقصات تراثية</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- التنورة -->
+            <div class="art-card" id="tannoura">
+                <div class="art-card-header">
+                    <div class="art-card-icon">💃</div>
+                    <div><h2>التنورة</h2><span>📍 القاهرة — الأماكن التراثية</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>واحدة من أشهر الفنون الاستعراضية التراثية، ترتبط بالفنون الصوفية التي تعتمد على الموسيقى والحركة الدائرية المستمرة. يؤدي الراقص العرض مرتديًا تنورة واسعة متعددة الألوان تدور مع الموسيقى. ترجع أصولها للاحتفالات الصوفية، وتتميز بالألوان الزاهية والزخارف المستوحاة من التراث الإسلامي.</p>
+                    <div class="art-facts">
+                        <div class="art-fact">💃 دوران مستمر</div>
+                        <div class="art-fact">🕌 فنون صوفية</div>
+                        <div class="art-fact">🎨 تنورات ملونة</div>
+                        <div class="art-fact">🎶 مهرجانات تراثية</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الفنون النوبية - كارت كامل -->
+            <div class="art-card art-card-full" id="nubia">
+                <div class="art-card-header">
+                    <div class="art-card-icon">🌴</div>
+                    <div><h2>الرقص والغناء النوبي</h2><span>📍 أسوان والنوبة</span></div>
+                </div>
+                <div class="art-card-body">
+                    <p>تُعتبر الفنون النوبية من أكثر الفنون الشعبية تميزًا في مصر، تعكس روح النوبة وهويتها الثقافية من خلال الموسيقى والرقصات والأغاني التراثية. تتميز بالألوان المبهجة والإيقاعات السريعة والأجواء الاحتفالية التي تعبر عن الترابط والبهجة.</p>
+                    <div class="nubi-grid">
+                        <div class="nubi-sub">
+                            <h3>💃 الرقص النوبي</h3>
+                            <p>يتميز بالحركات الجماعية المتناسقة التي تعتمد على الإيقاع السريع والانسجام بين الراقصين. تتميز الأزياء بالألوان الزاهية المستوحاة من الطبيعة النوبية، وتُستخدم الطبول والدفوف التي تمنح الأجواء طابعًا احتفاليًا مميزًا.</p>
+                        </div>
+                        <div class="nubi-sub">
+                            <h3>🎵 الغناء النوبي</h3>
+                            <p>جزء مهم من التراث الثقافي في أسوان، تتميز أغانيه بالإيقاعات الهادئة والحماسية، وتعبر كلماتها عن الحياة والنيل والحب والانتماء للأرض. يستخدم اللغة النوبية التي تمنحه طابعًا ثقافيًا خاصًا.</p>
+                        </div>
+                    </div>
+                    <div class="art-facts" style="margin-top:15px;">
+                        <div class="art-fact">🥁 طبول ودفوف نوبية</div>
+                        <div class="art-fact">🌊 أغاني عن النيل</div>
+                        <div class="art-fact">🌈 أزياء ملونة تراثية</div>
+                        <div class="art-fact">🌴 اللغة النوبية الأصيلة</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- الفوتر -->
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-col">
-                <h3 class="footer-logo">شذرات</h3>
+                <div style="display:flex; align-items:center; gap:15px; margin-bottom:10px;">
+                    <h3 class="footer-logo brand-font">شَذَرات<span class="logo-en">SHAZHARAT</span></h3>
+                    <img src="images/logo2.png" alt="شذرات" style="height:100px; width:auto; object-fit:contain;">
+                </div>
                 <p>منصة تهتم بالتراث المصري الأصيل؛ حرف، أماكن، وقصص من الماضي إلى الحاضر.</p>
+                <div class="qr-wrapper">
+                    <p class="qr-label">تابعنا على منصات التواصل</p>
+                    <img src="images/follow-us.jpg" alt="QR Code" class="qr-img">
+                </div>
             </div>
             <div class="footer-col">
                 <h4>روابط سريعة</h4>
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="index.html#aboutModal">عن شذرات</a></li>
+                    <li><a href="#">عن شذرات</a></li>
                     <li><a href="#">تواصل معنا</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>الحرف اليدوية</h4>
                 <ul>
-                    <li><a href="#">الفخار</a></li>
-                    <li><a href="#">النحاس</a></li>
-                    <li><a href="#">النسيج</a></li>
+                    <li><a href="crafts.html#pottery-section">الفخار</a></li>
+                    <li><a href="crafts.html#copper-section">النحاس</a></li>
+                    <li><a href="crafts.html#weaving-section">السجاد والكليم</a></li>
+                    <li><a href="crafts.html">المزيد</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -464,7 +442,16 @@
         <div class="footer-bottom">
             <p>حقوق النشر © 2026 شذرات - جميع الحقوق محفوظة</p>
         </div>
+        <div class="footer-university">
+            <p>مشروع تخرج كلية الإعلام - جامعة بني سويف</p>
+        </div>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+        if (menuToggle) menuToggle.onclick = function() { navLinks.classList.toggle("open"); }
+    </script>
 
 </body>
 </html>

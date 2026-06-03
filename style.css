@@ -311,7 +311,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
-    align-items: start;
+    align-items: stretch;
 }
 
 .stories-box {
@@ -402,7 +402,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    min-height: 250px;
+    border-radius: 12px;
     background: linear-gradient(rgba(11,43,26,0.5), rgba(11,43,26,0.7)),
                 url('images/hero-bg.jpg') center/cover no-repeat;
     display: flex;
