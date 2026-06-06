@@ -55,6 +55,12 @@
             to   { opacity: 1; transform: translateY(0); }
         }
     </style>
+    <script>
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname);
+            window.scrollTo(0, 0);
+        }
+    </script>
 </head>
 <body>
 
@@ -149,7 +155,7 @@
                 </div>
 
                 <p style="text-align:center; font-weight:700; color:#0b2b1a; font-size:1rem; margin-top:20px; background-color:#e6edd9; padding:12px; border-radius:6px;">
-                    ✨ شذرات.. بنجمع خيوط الماضي، عشان ننور بيها طريق المستقبل.
+                    ✨ شذرات ……اجزاء تصنع الحكايه
                 </p>
             </div>
         </div>
@@ -229,7 +235,7 @@
             <!-- زر الإغلاق -->
             <button onclick="document.getElementById('craftModal').style.display='none'" style="position:absolute; top:15px; left:15px; background:rgba(0,0,0,0.5); border:none; color:#fff; width:36px; height:36px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center;">×</button>
             <!-- المحتوى -->
-            <div style="padding:30px; display:grid; grid-template-columns:1fr 280px; gap:30px;" id="craftModalBody">
+            <div style="padding:30px; display:grid; grid-template-columns:1fr 280px; gap:30px;" id="craftModalBody" class="craft-modal-body">
                 <div>
                     <p id="craftModalDesc" style="font-size:15px; line-height:2; color:#4a3d32; margin-bottom:25px; background:#fff; padding:20px; border-radius:10px; border-right:4px solid #0b2b1a;"></p>
                     <div id="craftModalFacts" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:25px;"></div>
@@ -384,6 +390,7 @@
                     </h3>
                     <img src="images/logo2.png" alt="شذرات" style="height:100px; width:auto; object-fit:contain;">
                 </div>
+                <p style="font-size:15px; color:#c9a84c; font-weight:700; letter-spacing:1px; margin-bottom:10px; font-family:'Reem Kufi', sans-serif;">✨ شذرات … أجزاء تصنع الحكاية</p>
                 <p>منصة تهتم بالتراث المصري الأصيل؛ حرف، أماكن، قصص من الماضي إلى الحاضر.</p>
                 <div class="qr-wrapper">
                     <p class="qr-label">تابعنا على منصات التواصل</p>

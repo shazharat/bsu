@@ -50,7 +50,7 @@
         .arts-nav {
             background: #0b2b1a;
             display: flex; flex-wrap: wrap;
-            gap: 0; overflow-x: auto;
+            gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
             border-bottom: 2px solid rgba(255,255,255,0.1);
         }
         .arts-nav a {
@@ -79,7 +79,7 @@
         /* Art cards grid */
         .arts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr));
             gap: 25px;
         }
 
@@ -159,6 +159,12 @@
             .nubi-grid { grid-template-columns: 1fr; }
             .art-facts { grid-template-columns: 1fr; }
             .arts-body { padding: 40px 5%; }
+        }
+        @media (max-width: 480px) {
+            .arts-hero h1 { font-size: 24px; }
+            .arts-hero p { font-size: 14px; }
+            .arts-nav a { font-size: 12px; padding: 8px 12px; }
+            .arts-body { padding: 25px 4%; }
         }
     </style>
 </head>
